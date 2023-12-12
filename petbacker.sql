@@ -40,7 +40,7 @@ create table Donacion(
 );
 create table TipoServicio(
 	idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 10),
-    lugar_recogida date not null,
+    lugar_recogida char(250) not null,
     fecha_inicio date not null,
     numero_dias int not null check(numero_dias >= 1 AND numero_dias <= 365),
 	fecha_fin date not null,
@@ -111,3 +111,4 @@ create table Comentario(
     foreign key(idUsu) references Usuario(idUsu),
     foreign key(idCui) references Usuario(idUsu)
 )
+
