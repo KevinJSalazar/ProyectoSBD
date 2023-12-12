@@ -5,7 +5,7 @@ create table RefugioMascotas(
 	idRef int not null unique check(idRef > 0 AND idRef < 1000),
     email char(50) not null unique,
     descripcion char(250) not null,
-    foto blob not null,
+    foto char(250) not null,
     pagina_web char(50) not null,
     direccion char(50) not null,
     estado char(30) not null,
@@ -110,4 +110,8 @@ create table Comentario(
     foreign key(idSer) references Servicio(idSer),
     foreign key(idUsu) references Usuario(idUsu),
     foreign key(idCui) references Usuario(idUsu)
-)
+);
+
+use PetBacker;
+insert into RefugioMascotas values(1, "asd@company.com", "Refugio de Gatitos en el Guasmo",  "https://i0.wp.com/puppis.blog/wp-content/uploads/2022/02/abc-cuidado-de-los-gatos-min.jpg?resize=1024%2C681&ssl=1", "www.gatitosRefugiados.com", "Coop. Unión de bananeros", "Guayas", "Guayaquil", 1234541244);
+
