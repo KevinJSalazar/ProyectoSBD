@@ -112,18 +112,39 @@ create table Comentario(
     foreign key(idSer) references Servicio(idSer),
     foreign key(idUsu) references Usuario(idUsu),
     foreign key(idCui) references Usuario(idUsu)
-<<<<<<< HEAD
 );
 
 use PetBacker;
-insert into RefugioMascotas values(1, "asd@company.com", "Refugio de Gatitos en el Guasmo",  "https://i0.wp.com/puppis.blog/wp-content/uploads/2022/02/abc-cuidado-de-los-gatos-min.jpg?resize=1024%2C681&ssl=1", "www.gatitosRefugiados.com", "Coop. Unión de bananeros", "Guayas", "Guayaquil", 1234541244);
+insert into Servicio values(60, 20, "Cuidado de Mascotas", "cuidado bonito", 25.50, Ecuador, Pichincha, Quito, 70); 
+insert into Servicio values(61, 21, "Cuidado de Mascotas", "cuidado bonito", 25.50, Ecuador, Pichincha, Quito, 71); 
+insert into Servicio values(62, 22, "Cuidado de Mascotas", "cuidado bonito", 25.50, Ecuador, Pichincha, Quito, 72);
+insert into Servicio values(63, 23, "Cuidado de Mascotas", "cuidado bonito", 25.50, Ecuador, Pichincha, Quito, 73); 
+insert into Servicio values(64, 24, "Paseo de Perros", "Paseo entretenido", 30.50, Ecuador, Tarqui, Guayaquil, 74);  
+insert into Servicio values(65, 25, "Paseo de Perros", "Paseo entretenido", 30.50, Ecuador, Tarqui, Guayaquil, 75);
+insert into Servicio values(66, 26, "Paseo de Perros", "Paseo entretenido", 30.50, Ecuador, Tarqui, Guayaquil, 76);
+insert into Servicio values(67, 27, "Alojamiento", "Alojamiento espacioso.", 35.50, Ecuador, Chimborazo, Riobamba, 77);
+insert into Servicio values(68, 28, "Alojamiento", "Alojamiento espacioso.", 35.50, Ecuador, Chimborazo, Riobamba, 78);
+insert into Servicio values(69, 29, "Alojamiento", "Alojamiento espacioso.", 35.50, Ecuador, Chimborazo, Riobamba, 79);
 
-=======
-)
-<<<<<<< HEAD
-<<<<<<< HEAD
+insert into Solicitud values(80, 60, 1, 20, 2023/12/01);
+insert into Solicitud values(81, 61, 2, 21, 2023/12/02);
+insert into Solicitud values(82, 62, 3, 22, 2023/12/03);
+insert into Solicitud values(83, 63, 4, 23, 2023/12/04);
+insert into Solicitud values(84, 64, 5, 24, 2023/12/05);
+insert into Solicitud values(85, 65, 6, 25, 2023/12/06);
+insert into Solicitud values(86, 66, 7, 26, 2023/12/07);
+insert into Solicitud values(87, 67, 8, 27, 2023/12/08);
+insert into Solicitud values(88, 68, 9, 28, 2023/12/09);
+insert into Solicitud values(89, 69, 10, 29, 2023/12/10);
 
-=======
-=======
->>>>>>> 1f1ff866f1972db1f443708ae5f942f2b3cb3e27
->>>>>>> 7b86b813b219dc45c7083707113849a0b16c510d
+insert into Comentario values(90, 60, 1, 20, 2023/12/02, 10, "Me gusta");
+insert into Comentario values(91, 61, 2, 21, 2023/12/03, 10, "Me gusta");
+insert into Comentario values(92, 62, 3, 22, 2023/12/04, 10, "Me gusta");
+insert into Comentario values(93, 63, 4, 23, 2023/12/05, 10, "Me gusta");
+insert into Comentario values(94, 64, 5, 24, 2023/12/06, 10, "Me gusta");
+insert into Comentario values(95, 65, 6, 25, 2023/12/07, 10, "Me gusta");
+insert into Comentario values(96, 66, 7, 26, 2023/12/08, 10, "Me gusta");
+insert into Comentario values(97, 67, 8, 27, 2023/12/09, 10, "Me gusta");
+insert into Comentario values(98, 68, 9, 28, 2023/12/10, 10, "Me gusta");
+insert into Comentario values(99, 69, 10, 29, 2023/12/11, 10, "Me gusta");
+
