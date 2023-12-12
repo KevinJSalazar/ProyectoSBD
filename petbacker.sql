@@ -115,16 +115,16 @@ create table Comentario(
 );
 
 use PetBacker;
-insert into Servicio values(60, 20, "Cuidado de Mascotas", "cuidado bonito", 25.50, Ecuador, Guayas, Guayaquil, 70); 
-insert into Servicio values(61, 21, "Cuidado de Mascotas", "cuidado bonito", 25.50, Ecuador, Guayas, Guayaquil, 71); 
-insert into Servicio values(62, 22, "Cuidado de Mascotas", "cuidado bonito", 25.50, Ecuador, Guayas, Guayaquil, 72);
-insert into Servicio values(63, 23, "Cuidado de Mascotas", "cuidado bonito", 25.50, Ecuador, Guayas, Guayaquil, 73); 
+insert into Servicio values(60, 20, "Cuidado de Mascotas", "cuidado bonito", 25.50, Ecuador, Pichincha, Quito, 70); 
+insert into Servicio values(61, 21, "Cuidado de Mascotas", "cuidado bonito", 25.50, Ecuador, Pichincha, Quito, 71); 
+insert into Servicio values(62, 22, "Cuidado de Mascotas", "cuidado bonito", 25.50, Ecuador, Pichincha, Quito, 72);
+insert into Servicio values(63, 23, "Cuidado de Mascotas", "cuidado bonito", 25.50, Ecuador, Pichincha, Quito, 73); 
 insert into Servicio values(64, 24, "Paseo de Perros", "Paseo entretenido", 30.50, Ecuador, Tarqui, Guayaquil, 74);  
 insert into Servicio values(65, 25, "Paseo de Perros", "Paseo entretenido", 30.50, Ecuador, Tarqui, Guayaquil, 75);
 insert into Servicio values(66, 26, "Paseo de Perros", "Paseo entretenido", 30.50, Ecuador, Tarqui, Guayaquil, 76);
-insert into Servicio values(67, 27, "Alojamiento", "Alojamiento espacioso.", 35.50, Ecuador, Chimborazo, Guayaquil, 77);
-insert into Servicio values(68, 28, "Alojamiento", "Alojamiento espacioso.", 35.50, Ecuador, Chimborazo, Guayaquil, 78);
-insert into Servicio values(69, 29, "Alojamiento", "Alojamiento espacioso.", 35.50, Ecuador, Chimborazo, Guayaquil, 79);
+insert into Servicio values(67, 27, "Alojamiento", "Alojamiento espacioso.", 35.50, Ecuador, Chimborazo, Riobamba, 77);
+insert into Servicio values(68, 28, "Alojamiento", "Alojamiento espacioso.", 35.50, Ecuador, Chimborazo, Riobamba, 78);
+insert into Servicio values(69, 29, "Alojamiento", "Alojamiento espacioso.", 35.50, Ecuador, Chimborazo, Riobamba, 79);
 
 insert into Solicitud values(80, 60, 1, 20, 2023/12/01);
 insert into Solicitud values(81, 61, 2, 21, 2023/12/02);
