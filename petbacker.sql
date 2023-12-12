@@ -20,7 +20,7 @@ create table Usuario(
     nickname char(250) not null,
     contraseña char(50) not null,
     telefono char(20),
-    foto blob not null,
+    foto char(250) not null,
     red_social char(30),
     vales int not null,
     tarjeta int,
@@ -40,7 +40,7 @@ create table Donacion(
 );
 create table TipoServicio(
 	idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 10),
-    lugar_recogida date not null,
+    lugar_recogida char(250) not null,
     fecha_inicio date not null,
     numero_dias int not null check(numero_dias >= 1 AND numero_dias <= 365),
 	fecha_fin date not null,
@@ -92,6 +92,7 @@ create table Solicitud(
 	idSer int not null unique check(idSer > 0 AND idSer < 100000),
     idUsu int not null unique check(idUsu > 0 AND idUsu < 100000),
     idCui int not null unique check(idCui > 0 AND idCui < 100000),
+	constraint diferentes1 check(idUsu != idCui),
     fecha date not null,
     primary key(idSol, idSer, idUsu, idCui),
     foreign key(idSer) references Servicio(idSer),
@@ -103,6 +104,7 @@ create table Comentario(
 	idSer int not null unique check(idSer > 0 AND idSer < 100000),
     idUsu int not null unique check(idUsu > 0 AND idUsu < 100000),
     idCui int not null unique check(idCui > 0 AND idCui < 100000),
+	constraint diferentes2 check(idUsu != idCui),
     fecha date not null,
     valoracion double not null,
     contenido char(250) not null,
@@ -110,8 +112,12 @@ create table Comentario(
     foreign key(idSer) references Servicio(idSer),
     foreign key(idUsu) references Usuario(idUsu),
     foreign key(idCui) references Usuario(idUsu)
+<<<<<<< HEAD
 );
 
 use PetBacker;
 insert into RefugioMascotas values(1, "asd@company.com", "Refugio de Gatitos en el Guasmo",  "https://i0.wp.com/puppis.blog/wp-content/uploads/2022/02/abc-cuidado-de-los-gatos-min.jpg?resize=1024%2C681&ssl=1", "www.gatitosRefugiados.com", "Coop. Unión de bananeros", "Guayas", "Guayaquil", 1234541244);
 
+=======
+)
+>>>>>>> 7b86b813b219dc45c7083707113849a0b16c510d
