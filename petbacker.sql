@@ -115,6 +115,51 @@ create table Comentario(
 );
 
 use PetBacker;
+
+insert into RefugioMascotas values(1, "asd@company.com", "Refugio de Gatitos en el Guasmo",  "https://i0.wp.com/puppis.blog/wp-content/uploads/2022/02/abc-cuidado-de-los-gatos-min.jpg?resize=1024%2C681&ssl=1", "www.gatitosrefugiados.com", "Coop. Unión de bananeros", "Guayas", "Guayaquil", 1234541244, null);
+insert into RefugioMascotas values(2, "das@company.com", "Refugio Perrito", "url.png",  "www.refugioperritos.com", "Portete y la 32", "Guayas", "Guayaquil", 1234541244, null);
+insert into RefugioMascotas values(3, "exc@company.com", "Refugio Animal", "url.png",  "www.refugioanimal.com", "Rumichaca", "Guayas", "Guayaquil", 1234541244, null);
+insert into RefugioMascotas values(4, "def@company.com", "Refugio amiguitos", "url.png",  "www.refugioamigo.com", "Malecón del salado", "Guayas", "Guayaquil", 1234541244, null);
+insert into RefugioMascotas values(5, "qwe@company.com", "Refugio Gato Bonito", "url.png",  "www.refugiogatito.com", "Espol Campus Prosperina", "Guayas", "Guayaquil", 1234541244, null);
+insert into RefugioMascotas values(6, "erd@company.com", "El gato elegante", "url.png",  "www.refugiogatoelegante.com", "Malecón 2000", "Guayas", "Guayaquil", 1234541244, null);
+insert into RefugioMascotas values(7, "wfd@company.com", "Refugio cachorro", "url.png",  "www.refugiocachorro.com", "Mall el Fortín", "Guayas", "Guayaquil", 1234541244, null);
+insert into RefugioMascotas values(8, "gtr@company.com", "Refugio animales seguros", "url.png",  "www.refugioanimalseguro.com", "9 de Octubre", "Guayas", "Guayaquil", 1234541244, null);
+insert into RefugioMascotas values(9, "jtn@company.com", "Refugio Las Peñas", "url.png",  "www.refugiopeñas.com", "Las Peñas", "Guayas", "Guayaquil", 1234541244, null);
+insert into RefugioMascotas values(10, "llm@company.com", "El perro feliz", "url.png",  "www.refugioperrofeli.com", "Urdesa", "Guayas", "Guayaquil", 1234541244, null);
+
+insert into Usuario values(1, "vet@outlook.com", "Vet24", 12345, 3334445551, "image.png", null, 20, 1111111111, null);
+insert into Usuario values(2, "det@outlook.com", "Det41", 54321, 3332245551, "image.jpg", "Det Exa 4", 10, 1111111112, null);
+insert into Usuario values(3, "des@outlook.com", "Des45", "12asd23def", 3334445551, "image.png", null, 35, 1111111113, null);
+insert into Usuario values(4, "rad@outlook.com", "RadIcal", 343451, 3334335551, "image.png", null, 40, 1111111114, null);
+insert into Usuario values(5, "bir@outlook.com", "Birdie21", "Net86", 3334665551, "image.jpg", "Bir Cage 5", 20, 1111111115, null);
+insert into Usuario values(6, "num@outlook.com", "NumLock41", "defaultvalue123", 3224445551, "image.png", null, 20, 1111111116, null);
+insert into Usuario values(7, "cli@outlook.com", "Clitheclient", "ExcellentCompany", 3354445551, "image.png", null, 5, 1111111117, null);
+insert into Usuario values(8, "org@outlook.com", "Org563", "Sparky2024", 3334425651, "image.jpg", null, 0, 1111111118, null);
+insert into Usuario values(9, "pul@outlook.com", "Pulp76", "qw12er34ty5", 3398645551, "image.png", null, 100, 1111111119, null);
+insert into Usuario values(10, "red@outlook.com", "RedlikeaFlower", "qwerty", 3322145551, "image.png", "Red June", 15, 1111111110, null);
+
+insert into Usuario values(20, "der@outlook.com", "Der24", 12345, 3334442551, "image.jpg", "Derek Flint", 0, 1111111101, "Cuidador");
+insert into Usuario values(21, "fer@outlook.com", "Fernando31", 1234, 1334442551, "image.png", "Fernando Pinargote", 40, 1111111102, "Cuidador");
+insert into Usuario values(22, "ter@outlook.com", "Teresse789", "54a631s", 1334443552, "image.png", null, 40, 1111111103, "Cuidador");
+insert into Usuario values(23, "lev@outlook.com", "Levze514", "asd41qwe51.4", 1322442551, "image.png", null, 500, 1111111104, "Cuidador");
+insert into Usuario values(24, "liv@outlook.com", "LivingForever1", "Forever_and.Ever20", 1334442533, "image.png", "Liv Ramos", 0, 1111111105, "Cuidador");
+insert into Usuario values(25, "gru@outlook.com", "GruVillain54", "Moon", 1334242751, "image.png", null, 0, 1111111106, "Cuidador");
+insert into Usuario values(26, "min@outlook.com", "Min0909", "des31ftg.6", 8934442551, "image.png", null, 15, 1111111107, "Cuidador");
+insert into Usuario values(27, "lor@outlook.com", "Lor82", 1234, 1339842551, "image.png", null, 0, 1111111108, "Cuidador");
+insert into Usuario values(28, "gef@outlook.com", "Geff", 54321, 1334476551, "image.png", null, 0, 1111111109, "Cuidador");
+insert into Usuario values(29, "ban@outlook.com", "YouAreBanned", 1285567890, 1334442551, "image.png", "Ban Des", 0, 1111111010, "Cuidador");
+
+insert into Donacion values(1, 1, 1, "2023-07-24", 5, 10);
+insert into Donacion values(2, 4, 2, "2023-07-24", 5, 10);
+insert into Donacion values(3, 3, 4, "2023-07-24", 5, 10);
+insert into Donacion values(4, 2, 3, "2023-05-25", 20, 40);
+insert into Donacion values(5, 5, 6, "2023-05-25", 25, 50);
+insert into Donacion values(6, 7, 25, "2023-02-12", 50, 100);
+insert into Donacion values(7, 6, 23, "2023-08-03", 1, 2);
+insert into Donacion values(8, 8, 26, "2023-08-04", 1, 2);
+insert into Donacion values(9, 10, 5, "2023-07-24", 30, 60);
+insert into Donacion values(10, 9, 8, "2023-04-24", 12, 24);
+
 insert into Servicio values(60, 20, "Cuidado de Mascotas", "cuidado bonito", 25.50, Ecuador, Pichincha, Quito, 70); 
 insert into Servicio values(61, 21, "Cuidado de Mascotas", "cuidado bonito", 25.50, Ecuador, Pichincha, Quito, 71); 
 insert into Servicio values(62, 22, "Cuidado de Mascotas", "cuidado bonito", 25.50, Ecuador, Pichincha, Quito, 72);
@@ -147,4 +192,6 @@ insert into Comentario values(96, 66, 7, 26, 2023/12/08, 10, "Me gusta");
 insert into Comentario values(97, 67, 8, 27, 2023/12/09, 10, "Me gusta");
 insert into Comentario values(98, 68, 9, 28, 2023/12/10, 10, "Me gusta");
 insert into Comentario values(99, 69, 10, 29, 2023/12/11, 10, "Me gusta");
+
+
 
