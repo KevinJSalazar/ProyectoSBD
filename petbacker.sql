@@ -5,7 +5,7 @@ create table RefugioMascotas(
 	idRef int not null unique check(idRef > 0 AND idRef < 1000),
     email char(50) not null unique,
     descripcion char(250) not null,
-    foto blob not null,
+    foto char(250) not null,
     pagina_web char(50) not null,
     direccion char(50) not null,
     estado char(30) not null,
@@ -20,7 +20,7 @@ create table Usuario(
     nickname char(250) not null,
     contraseña char(50) not null,
     telefono char(20),
-    foto blob not null,
+    foto char(250) not null,
     red_social char(30),
     vales int not null,
     tarjeta int,
@@ -92,6 +92,7 @@ create table Solicitud(
 	idSer int not null unique check(idSer > 0 AND idSer < 100000),
     idUsu int not null unique check(idUsu > 0 AND idUsu < 100000),
     idCui int not null unique check(idCui > 0 AND idCui < 100000),
+	constraint diferentes1 check(idUsu != idCui),
     fecha date not null,
     primary key(idSol, idSer, idUsu, idCui),
     foreign key(idSer) references Servicio(idSer),
@@ -103,6 +104,7 @@ create table Comentario(
 	idSer int not null unique check(idSer > 0 AND idSer < 100000),
     idUsu int not null unique check(idUsu > 0 AND idUsu < 100000),
     idCui int not null unique check(idCui > 0 AND idCui < 100000),
+	constraint diferentes2 check(idUsu != idCui),
     fecha date not null,
     valoracion double not null,
     contenido char(250) not null,
@@ -111,4 +113,7 @@ create table Comentario(
     foreign key(idUsu) references Usuario(idUsu),
     foreign key(idCui) references Usuario(idUsu)
 )
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7b86b813b219dc45c7083707113849a0b16c510d
