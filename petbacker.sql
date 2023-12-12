@@ -112,8 +112,18 @@ create table Comentario(
     foreign key(idSer) references Servicio(idSer),
     foreign key(idUsu) references Usuario(idUsu),
     foreign key(idCui) references Usuario(idUsu)
+<<<<<<< HEAD
+);
+
+use PetBacker;
+insert into RefugioMascotas values(1, "asd@company.com", "Refugio de Gatitos en el Guasmo",  "https://i0.wp.com/puppis.blog/wp-content/uploads/2022/02/abc-cuidado-de-los-gatos-min.jpg?resize=1024%2C681&ssl=1", "www.gatitosRefugiados.com", "Coop. Unión de bananeros", "Guayas", "Guayaquil", 1234541244);
+
+=======
 )
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
+=======
+>>>>>>> 1f1ff866f1972db1f443708ae5f942f2b3cb3e27
 >>>>>>> 7b86b813b219dc45c7083707113849a0b16c510d
