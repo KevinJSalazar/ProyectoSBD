@@ -234,3 +234,5 @@ insert into Comentario values(98, 68, 9, 28, 2023/12/10, 10, "Me gusta");
 insert into Comentario values(99, 69, 10, 29, 2023/12/11, 10, "Me gusta");
 
 
+
+
