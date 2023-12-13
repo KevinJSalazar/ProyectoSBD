@@ -234,3 +234,14 @@ insert into Comentario values(96, 66, 7, 26, "2023-12-08", 9, "Muy pertinente");
 insert into Comentario values(97, 67, 8, 27, "2023-12-09", 8, "Agradable");
 insert into Comentario values(98, 68, 9, 28, "2023-12-10", 9, "Seguro");
 insert into Comentario values(99, 69, 10, 29, "2023-12-11", 10, "Maravilloso");
+
+
+-- Servicio creado por el cuidador
+select nickname, titulo from usuario join servicio on idusu = idcui;
+
+-- Servicio solicitado por usuario
+select nickname, titulo from usuario natural join solicitud natural join servicio;
+
+-- Mostrar a que refugio ha donado cada usuario
+select distinct U.nickname, R.descripcion from usuario U join donacion D on U.idusu = D.idusu join refugiomascotas R on D.idref = R.idRef;
+
