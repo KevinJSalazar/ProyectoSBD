@@ -39,7 +39,7 @@ create table Donacion(
     foreign key(idUsu) references Usuario(idUsu)
 );
 create table TipoServicio(
-	idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 10),
+	idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 100000),
     lugar_recogida char(250) not null,
     fecha_inicio date not null,
     numero_dias int not null check(numero_dias >= 1 AND numero_dias <= 365),
@@ -54,21 +54,21 @@ create table TipoServicio(
 );
 create table Tamaño(
 	idTam int not null unique check(idTam > 0 AND idTam < 1000000),
-    idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 10),
+    idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 100000),
     tamaño char(30) not null check(tamaño IN ("1-5kg", "5-10kg", "10-20kg", "20-40kg", "40+kg")),
     primary key(idTam, idTipoSer),
     foreign key(idtipoSer) references TipoServicio(idTipoSer)
 );
 create table TipoMascotas(
 	idTipoMas int not null unique check(idTipoMas > 0 AND idTipoMas < 1000000),
-    idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 10),
+    idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 100000),
     mascota char(30) not null check(mascota IN ("Perro", "Gato", "Conejo", "Conejillo de indias", "Hurón", "Ave", "Reptil", "Otros")),
     primary key(idTipoMas, idTipoSer),
     foreign key(idtipoSer) references TipoServicio(idTipoSer)
 );
 create table TipoAseo(
 	idTipoAseo int not null unique check(idTipoAseo > 0 AND idTipoAseo < 1000000),
-    idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 10),
+    idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 100000),
     aseo char(30) not null check(aseo IN ("básico", "completo", "ducha", "afeitado de almohadillas de patas", "recorte y relleno de uñas")),
     primary key(idTipoAseo, idTipoSer),
     foreign key(idtipoSer) references TipoServicio(idTipoSer)
