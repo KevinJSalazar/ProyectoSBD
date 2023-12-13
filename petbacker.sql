@@ -69,7 +69,7 @@ create table TipoMascotas(
 create table TipoAseo(
 	idTipoAseo int not null unique check(idTipoAseo > 0 AND idTipoAseo < 1000000),
     idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 10),
-    aseo char(30) not null check(aseo IN ("básico", "completo", "ducha", "afeitado de almohadillas de patas", "recorte y relleno de uñas")),
+    aseo char(50) not null check(aseo IN ("básico", "completo", "ducha", "afeitado de almohadillas de patas", "recorte y relleno de uñas")),
     primary key(idTipoAseo, idTipoSer),
     foreign key(idtipoSer) references TipoServicio(idTipoSer)
 );
@@ -149,6 +149,46 @@ insert into Usuario values(27, "lor@outlook.com", "Lor82", 1234, 1339842551, "im
 insert into Usuario values(28, "gef@outlook.com", "Geff", 54321, 1334476551, "image.png", null, 0, 1111111109, "Cuidador");
 insert into Usuario values(29, "ban@outlook.com", "YouAreBanned", 1285567890, 1334442551, "image.png", "Ban Des", 0, 1111111010, "Cuidador");
 
+insert into TipoServicio values(1, "9 de Octubre", "2023-02-14", 3, "2023-02-17", "Sensible a ruidos", "Siames", 1, "Guardería", false, null);
+insert into TipoServicio values(2, "Alborada", "2023-10-03", 1, "2023-10-04", null, "Mestizo", 2, "Paseo de Perros", true, 2);
+insert into TipoServicio values(3, "Parque Centenario", "2023-12-01", 14, "2023-12-15", null, "Sphynx", 2, "Alojamiento", false, null);
+insert into TipoServicio values(4, "Samborondón", "2023-04-04", 5, "2023-04-09", null, "Pug", 3, "Paseo de Perros", true, 2);
+insert into TipoServicio values(6, "Alborada", "2023-02-03", 20, "2023-02-23", "Es muy jugueton", "Mestizo", 2, "Alojamiento", false, null);
+insert into TipoServicio values(7, "Avenida Kenedy", "2024-02-14", 10, "2024-02-24", "Sensible al frio", "Mestizo", 3, "Alojamiento", true, 3);
+insert into TipoServicio values(8, "Avenida Carchi", "2023-12-24", 1, "2023-12-25", null, "Boxer", 1, "Cuidado de Mascotas", true, 2);
+insert into TipoServicio values(9, "Samborondón", "2023-05-25", 2, "2023-05-27", null, "Mestizo", 2, "Guardería", false, null);
+insert into TipoServicio values(5, "Bella Vista", "2023-07-19", 5, "2023-07-24", "Cuidado lo pisa", "Chihuahua", 2, "Guardería", true, 2);
+
+insert into Tamaño values(1, 1, "1-5kg");
+insert into Tamaño values(2, 2, "5-10kg");
+insert into Tamaño values(3, 3, "1-5kg");
+insert into Tamaño values(4, 4, "5-10kg");
+insert into Tamaño values(5, 5, "1-5kg");
+insert into Tamaño values(6, 6, "20-40kg");
+insert into Tamaño values(7, 7, "5-10kg");
+insert into Tamaño values(8, 8, "20-40kg");
+insert into Tamaño values(9, 9, "5-10kg");
+
+insert into TipoMascotas values (1, 1, "Gato");
+insert into TipoMascotas values (2, 2, "Perro");
+insert into TipoMascotas values (3, 3, "Gato");
+insert into TipoMascotas values (4, 4, "Perro");
+insert into TipoMascotas values (5, 5, "Perro");
+insert into TipoMascotas values (6, 6, "Reptil");
+insert into TipoMascotas values (7, 7, "Perro");
+insert into TipoMascotas values (8, 8, "Perro");
+insert into TipoMascotas values (9, 9, "Otros");
+
+insert into TipoAseo values (1, 1, "completo");
+insert into TipoAseo values (2, 2, "ducha");
+insert into TipoAseo values (3, 3, "ducha");
+insert into TipoAseo values (4, 4, "afeitado de almohadillas de patas");
+insert into TipoAseo values (5, 5, "básico");
+insert into TipoAseo values (6, 6, "ducha");
+insert into TipoAseo values (7, 7, "afeitado de almohadillas de patas");
+insert into TipoAseo values (8, 8, "básico");
+insert into TipoAseo values (9, 9, "recorte y relleno de uñas");
+
 insert into Donacion values(1, 1, 1, "2023-07-24", 5, 10);
 insert into Donacion values(2, 4, 2, "2023-07-24", 5, 10);
 insert into Donacion values(3, 3, 4, "2023-07-24", 5, 10);
@@ -192,6 +232,5 @@ insert into Comentario values(96, 66, 7, 26, 2023/12/08, 10, "Me gusta");
 insert into Comentario values(97, 67, 8, 27, 2023/12/09, 10, "Me gusta");
 insert into Comentario values(98, 68, 9, 28, 2023/12/10, 10, "Me gusta");
 insert into Comentario values(99, 69, 10, 29, 2023/12/11, 10, "Me gusta");
-
 
 
