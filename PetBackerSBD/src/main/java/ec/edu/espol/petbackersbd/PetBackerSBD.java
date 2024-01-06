@@ -11,6 +11,7 @@ package ec.edu.espol.petbackersbd;
 public class PetBackerSBD {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        FormDonación formularioDonacion = new FormDonación();
+        formularioDonacion.setVisible(true);
     }
 }
