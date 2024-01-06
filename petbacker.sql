@@ -202,16 +202,16 @@ insert into TipoAseo values (8, 77, "básico");
 insert into TipoAseo values (9, 78, "recorte y relleno de uñas");
 insert into TipoAseo values (10, 79, "completo");
 
-insert into Servicio values(60, 20, "Cuidado de Mascotas", "cuidado bonito", 25.50, "Ecuador", "Pichincha", "Quito", 70); 
-insert into Servicio values(61, 21, "Cuidado de Mascotas", "cuidado bonito", 25.50, "Ecuador", "Pichincha", "Quito", 71); 
-insert into Servicio values(62, 22, "Cuidado de Mascotas", "cuidado bonito", 25.50, "Ecuador", "Pichincha", "Quito", 72);
-insert into Servicio values(63, 23, "Cuidado de Mascotas", "cuidado bonito", 25.50, "Ecuador", "Pichincha", "Quito", 73); 
-insert into Servicio values(64, 24, "Paseo de Perros", "Paseo entretenido", 30.50, "Ecuador", "Tarqui", "Guayaquil", 74);  
-insert into Servicio values(65, 25, "Paseo de Perros", "Paseo entretenido", 30.50, "Ecuador", "Tarqui", "Guayaquil", 75);
-insert into Servicio values(66, 26, "Paseo de Perros", "Paseo entretenido", 30.50, "Ecuador", "Tarqui", "Guayaquil", 76);
-insert into Servicio values(67, 27, "Alojamiento", "Alojamiento espacioso.", 35.50, "Ecuador", "Chimborazo", "Riobamba", 77);
-insert into Servicio values(68, 28, "Alojamiento", "Alojamiento espacioso.", 35.50, "Ecuador", "Chimborazo", "Riobamba", 78);
-insert into Servicio values(69, 29, "Alojamiento", "Alojamiento espacioso.", 35.50, "Ecuador", "Chimborazo", "Riobamba", 79);
+insert into Servicio values(60, 20, "Mascotas de Ben", "Servicio de cuidado amoroso para mascota", 25.50, "Ecuador", "Pichincha", "Quito", 70); 
+insert into Servicio values(61, 21, "Cuidandolos", "Atención cariñosa para mascotas", 25.50, "Ecuador", "Pichincha", "Quito", 71); 
+insert into Servicio values(62, 22, "PawParadise", "cuidado bonito", 25.50, "Ecuador", "Pichincha", "Quito", 72);
+insert into Servicio values(63, 23, "PetPamperPalace", "Cuidado cariñoso para mascotas", 25.50, "Ecuador", "Pichincha", "Quito", 73); 
+insert into Servicio values(64, 24, "Explora Colitas", "Paseo entretenido", 30.50, "Ecuador", "Tarqui", "Guayaquil", 74);  
+insert into Servicio values(65, 25, "Aventuras con patitas", "Paseo entretenido para perros", 30.50, "Ecuador", "Tarqui", "Guayaquil", 75);
+insert into Servicio values(66, 26, "Paseo Peludo", "Paseo divertido y saludable para perros", 30.50, "Ecuador", "Tarqui", "Guayaquil", 76);
+insert into Servicio values(67, 27, "RefugioPetFriendly", "Alojamiento amplio y cómodo.", 35.50, "Ecuador", "Chimborazo", "Riobamba", 77);
+insert into Servicio values(68, 28, "Hotel Patas Felices", "Espacio de alojamiento cómodo y acogedor.", 35.50, "Ecuador", "Chimborazo", "Riobamba", 78);
+insert into Servicio values(69, 29, "Suites Peludas", "Alojamiento espacioso y confortable.", 35.50, "Ecuador", "Chimborazo", "Riobamba", 79);
 
 insert into Solicitud values(80, 60, 1, 20, "2023-12-01");
 insert into Solicitud values(81, 61, 2, 21, "2023-12-02");
@@ -234,7 +234,6 @@ insert into Comentario values(96, 66, 7, 26, "2023-12-08", 9, "Muy pertinente");
 insert into Comentario values(97, 67, 8, 27, "2023-12-09", 8, "Agradable");
 insert into Comentario values(98, 68, 9, 28, "2023-12-10", 9, "Seguro");
 insert into Comentario values(99, 69, 10, 29, "2023-12-11", 10, "Maravilloso");
-
 
 -- Servicio creado por el cuidador
 select nickname, titulo from usuario join servicio on idusu = idcui;
