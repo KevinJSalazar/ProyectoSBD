@@ -14,7 +14,11 @@
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.appArgs></exec.appArgs>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <exec.mainClass>ec.edu.espol.petbackersbd.PetBackerSBD</exec.mainClass>
+=======
+                <exec.mainClass>ec.edu.espol.petbackersbd.Inicio</exec.mainClass>
+>>>>>>> 0d44ab23a2ab89bc8ab8d2fbede44ac00376da95
 =======
                 <exec.mainClass>ec.edu.espol.petbackersbd.Inicio</exec.mainClass>
 >>>>>>> 0d44ab23a2ab89bc8ab8d2fbede44ac00376da95
@@ -35,7 +39,11 @@
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.appArgs></exec.appArgs>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <exec.mainClass>ec.edu.espol.petbackersbd.PetBackerSBD</exec.mainClass>
+=======
+                <exec.mainClass>ec.edu.espol.petbackersbd.Inicio</exec.mainClass>
+>>>>>>> 0d44ab23a2ab89bc8ab8d2fbede44ac00376da95
 =======
                 <exec.mainClass>ec.edu.espol.petbackersbd.Inicio</exec.mainClass>
 >>>>>>> 0d44ab23a2ab89bc8ab8d2fbede44ac00376da95
@@ -56,7 +64,11 @@
                 <exec.vmArgs></exec.vmArgs>
                 <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <exec.mainClass>ec.edu.espol.petbackersbd.PetBackerSBD</exec.mainClass>
+=======
+                <exec.mainClass>ec.edu.espol.petbackersbd.Inicio</exec.mainClass>
+>>>>>>> 0d44ab23a2ab89bc8ab8d2fbede44ac00376da95
 =======
                 <exec.mainClass>ec.edu.espol.petbackersbd.Inicio</exec.mainClass>
 >>>>>>> 0d44ab23a2ab89bc8ab8d2fbede44ac00376da95
