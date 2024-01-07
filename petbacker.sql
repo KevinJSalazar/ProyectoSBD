@@ -1,11 +1,11 @@
-drop database PetBacker;
+-- drop database PetBacker;
 create database if not exists PetBacker;
 use PetBacker;
 create table RefugioMascotas(
-	idRef int not null unique check(idRef > 0 AND idRef < 1000),
+	idRef int not null auto_increment unique,
     email char(50) not null unique,
     descripcion char(250) not null,
-    foto char(250) not null,
+    foto longblob not null,
     pagina_web char(50) not null,
     direccion char(50) not null,
     estado char(30) not null,
@@ -15,20 +15,20 @@ create table RefugioMascotas(
     primary key(idRef)
 );
 create table Usuario(
-	idUsu int not null unique check(idUsu > 0 AND idUsu < 100000),
+	idUsu int not null auto_increment unique,
     email char(50) not null unique,
     nickname char(250) not null,
     contraseña char(50) not null,
     telefono char(20),
-    foto char(250) not null,
+    foto longblob,
     red_social char(30),
-    vales int not null,
+    vales int not null default 0,
     tarjeta int,
     tipo char(20) check(tipo = "Cuidador" OR tipo is null),
     primary key(idUsu)
 );
 create table Donacion(
-	idDon int not null unique check(idDon > 0 AND idDon < 100000),
+	idDon int not null unique auto_increment,
 	idRef int not null unique check(idRef > 0 AND idRef < 1000),
 	idUsu int not null unique check(idUsu > 0 AND idUsu < 100000),
 	fecha date not null,
@@ -39,7 +39,7 @@ create table Donacion(
     foreign key(idUsu) references Usuario(idUsu)
 );
 create table TipoServicio(
-	idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 100000),
+	idTipoSer int not null auto_increment unique,
     lugar_recogida char(250) not null,
     fecha_inicio date not null,
     numero_dias int not null check(numero_dias >= 1 AND numero_dias <= 365),
@@ -53,28 +53,28 @@ create table TipoServicio(
     primary key(idTipoSer)
 );
 create table Tamaño(
-	idTam int not null unique check(idTam > 0 AND idTam < 1000000),
+	idTam int not null auto_increment unique,
     idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 100000),
     tamaño char(30) not null check(tamaño IN ("1-5kg", "5-10kg", "10-20kg", "20-40kg", "40+kg")),
     primary key(idTam, idTipoSer),
     foreign key(idtipoSer) references TipoServicio(idTipoSer)
 );
 create table TipoMascotas(
-	idTipoMas int not null unique check(idTipoMas > 0 AND idTipoMas < 1000000),
+	idTipoMas int not null auto_increment unique,
     idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 100000),
     mascota char(30) not null check(mascota IN ("Perro", "Gato", "Conejo", "Conejillo de indias", "Hurón", "Ave", "Reptil", "Otros")),
     primary key(idTipoMas, idTipoSer),
     foreign key(idtipoSer) references TipoServicio(idTipoSer)
 );
 create table TipoAseo(
-	idTipoAseo int not null unique check(idTipoAseo > 0 AND idTipoAseo < 1000000),
+	idTipoAseo int not null auto_increment unique,
     idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 100000),
     aseo char(50) not null check(aseo IN ("básico", "completo", "ducha", "afeitado de almohadillas de patas", "recorte y relleno de uñas")),
     primary key(idTipoAseo, idTipoSer),
     foreign key(idtipoSer) references TipoServicio(idTipoSer)
 );
 create table Servicio(
-	idSer int not null unique check(idSer > 0 AND idSer < 100000),
+	idSer int not null auto_increment unique,
     idCui int not null unique check(idCui > 0 AND idCui < 100000),
     titulo char(50) not null,
     descripcion char(250) not null,
@@ -88,7 +88,7 @@ create table Servicio(
     foreign key(idTipoSer) references TipoServicio(idTipoSer)
 );
 create table Solicitud(
-	idSol int not null unique check(idSol > 0 AND idSol < 10000000),
+	idSol int not null auto_increment unique,
 	idSer int not null unique check(idSer > 0 AND idSer < 100000),
     idUsu int not null unique check(idUsu > 0 AND idUsu < 100000),
     idCui int not null unique check(idCui > 0 AND idCui < 100000),
@@ -100,7 +100,7 @@ create table Solicitud(
     foreign key(idCui) references Usuario(idUsu)
 );
 create table Comentario(
-	idSol int not null unique check(idSol > 0 AND idSol < 10000000),
+	idSol int not null auto_increment unique,
 	idSer int not null unique check(idSer > 0 AND idSer < 100000),
     idUsu int not null unique check(idUsu > 0 AND idUsu < 100000),
     idCui int not null unique check(idCui > 0 AND idCui < 100000),
@@ -114,6 +114,7 @@ create table Comentario(
     foreign key(idCui) references Usuario(idUsu)
 );
 
+/*
 insert into RefugioMascotas values(1, "asd@company.com", "Refugio de Gatitos en el Guasmo",  "https://i0.wp.com/puppis.blog/wp-content/uploads/2022/02/abc-cuidado-de-los-gatos-min.jpg?resize=1024%2C681&ssl=1", "www.gatitosrefugiados.com", "Coop. Unión de bananeros", "Guayas", "Guayaquil", 1234541244, null);
 insert into RefugioMascotas values(2, "das@company.com", "Refugio Perrito", "url.png",  "www.refugioperritos.com", "Portete y la 32", "Guayas", "Guayaquil", 1234541244, null);
 insert into RefugioMascotas values(3, "exc@company.com", "Refugio Animal", "url.png",  "www.refugioanimal.com", "Rumichaca", "Guayas", "Guayaquil", 1234541244, null);
