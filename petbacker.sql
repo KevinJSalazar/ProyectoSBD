@@ -1,5 +1,5 @@
 -- drop database PetBacker;
-create database if not exists PetBacker;
+create database PetBacker;
 use PetBacker;
 create table RefugioMascotas(
 	idRef int not null auto_increment unique,
@@ -24,7 +24,7 @@ create table Usuario(
     red_social char(30),
     vales int not null default 0,
     tarjeta int,
-    tipo char(20) check(tipo = "Cuidador" OR tipo is null),
+    tipo char(20) check(tipo = "Cuidador" OR tipo = "Default"),
     primary key(idUsu)
 );
 create table Donacion(
