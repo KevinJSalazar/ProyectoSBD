@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -124,7 +125,7 @@ public class CTipodeServicio {
         this.Can_Paseos = Can_Paseos;
     }  
     
-    public void saveTip_of_Serv(JTextField paramlugar, JDateChooser paraminicio,  JTextField paramdias, JDateChooser paramfin, JTextField paramdetalles, JTextField paramraza, JTextField parammascotas,JTextField paramestipo, JCheckBox paramrecogida, JTextField parampaseos){
+    public void saveTip_of_Serv(JTextField paramlugar, JDateChooser paraminicio,  JTextField paramdias, JDateChooser paramfin, JTextField paramdetalles, JTextField paramraza, JTextField parammascotas,JComboBox paramestipo, JCheckBox paramrecogida, JTextField parampaseos){
         setLugar_recogida(paramlugar.getText());
         setFechaInicio(new java.sql.Date(paraminicio.getDate().getTime()));
         setCan_Dias(Integer.parseInt(paramdias.getText()));
@@ -132,7 +133,7 @@ public class CTipodeServicio {
         setDetalles(paramdetalles.getText());
         setRaza(paramraza.getText());
         setCan_Mascotas(Integer.parseInt(parammascotas.getText()));
-        setEsTipo(paramestipo.getText());
+        setEsTipo(paramestipo.getSelectedItem().toString());
         setRecoger(paramrecogida.isSelected());
         setCan_Paseos(Integer.parseInt(parampaseos.getText()));
         
@@ -225,7 +226,7 @@ public class CTipodeServicio {
                   
     }
     
-    public void selectTip_of_Serv(JTable paramTablaTotalTip_of_Serv, JTextField paramid, JTextField paramlugar, JDateChooser paraminicio, JTextField paramdias, JDateChooser paramfin, JTextField paramdetalles, JTextField paramraza, JTextField parammascotas,JTextField paramestipo, JCheckBox paramrecogida, JTextField parampaseos ){
+    public void selectTip_of_Serv(JTable paramTablaTotalTip_of_Serv, JTextField paramid, JTextField paramlugar, JDateChooser paraminicio, JTextField paramdias, JDateChooser paramfin, JTextField paramdetalles, JTextField paramraza, JTextField parammascotas,JComboBox paramestipo, JCheckBox paramrecogida, JTextField parampaseos ){
         
         try{
             int fila = paramTablaTotalTip_of_Serv.getSelectedRow();
@@ -243,7 +244,7 @@ public class CTipodeServicio {
                 
                 paramraza.setText(paramTablaTotalTip_of_Serv.getValueAt(fila, 6).toString());
                 parammascotas.setText(paramTablaTotalTip_of_Serv.getValueAt(fila, 7).toString());
-                paramestipo.setText(paramTablaTotalTip_of_Serv.getValueAt(fila, 8).toString());
+                paramestipo.setSelectedItem(paramTablaTotalTip_of_Serv.getValueAt(fila, 8).toString());
 
                 String bool = paramTablaTotalTip_of_Serv.getValueAt(fila, 9).toString();
                 
@@ -288,7 +289,7 @@ public class CTipodeServicio {
         }
     }
     
-    public void modifyTip_of_Serv(JTextField paramid, JTextField paramlugar, JDateChooser paraminicio, JTextField paramdias, JDateChooser paramfin, JTextField paramdetalles, JTextField paramraza, JTextField parammascotas,JTextField paramestipo, JCheckBox paramrecogida, JTextField parampaseos ){
+    public void modifyTip_of_Serv(JTextField paramid, JTextField paramlugar, JDateChooser paraminicio, JTextField paramdias, JDateChooser paramfin, JTextField paramdetalles, JTextField paramraza, JTextField parammascotas,JComboBox paramestipo, JCheckBox paramrecogida, JTextField parampaseos ){
         setId(Integer.parseInt(paramid.getText()));
         setLugar_recogida(paramlugar.getText());
         setFechaInicio(new java.sql.Date(paraminicio.getDate().getTime()));
@@ -297,7 +298,7 @@ public class CTipodeServicio {
         setDetalles(paramdetalles.getText());
         setRaza(paramraza.getText());
         setCan_Mascotas(Integer.parseInt(parammascotas.getText()));
-        setEsTipo(paramestipo.getText());
+        setEsTipo(paramestipo.getSelectedItem().toString());
         setRecoger(paramrecogida.isSelected());
         setCan_Paseos(Integer.parseInt(parampaseos.getText()));
         
