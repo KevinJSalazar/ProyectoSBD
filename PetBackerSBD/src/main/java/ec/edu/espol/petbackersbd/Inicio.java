@@ -4,6 +4,7 @@
  */
 package ec.edu.espol.petbackersbd;
 
+import formularios.FormRefugioMascota;
 import formularios.FormUsuario;
 
 /**
@@ -13,7 +14,10 @@ import formularios.FormUsuario;
 public class Inicio {
     
     public static void main(String[] args) {
-        FormUsuario objetoFormulario = new FormUsuario();
+//        FormUsuario objetoFormulario = new FormUsuario();
+//        objetoFormulario.setVisible(true);
+        
+        FormRefugioMascota objetoFormulario = new FormRefugioMascota();
         objetoFormulario.setVisible(true);
     }
 }

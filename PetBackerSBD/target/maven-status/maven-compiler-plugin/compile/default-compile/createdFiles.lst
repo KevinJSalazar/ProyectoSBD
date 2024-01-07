@@ -1,6 +1,9 @@
 formularios\FormRefugioMascota$1.class
 ec\edu\espol\petbackersbd\FormDonación$3.class
 ec\edu\espol\petbackersbd\FormServicio$4.class
+formularios\FormRefugioMascota$8.class
+formularios\FormRefugioMascota$6.class
+formularios\FormRefugioMascota$3.class
 formularios\FormUsuario$6.class
 formularios\FormUsuario$1.class
 formularios\FormUsuario.class
@@ -11,6 +14,7 @@ ec\edu\espol\petbackersbd\FormServicio$6.class
 formularios\FormUsuario$8.class
 ec\edu\espol\petbackersbd\FormServicio.class
 ec\edu\espol\petbackersbd\FormServicio$1.class
+formularios\FormRefugioMascota$5.class
 formularios\FormUsuario$3.class
 ec\edu\espol\petbackersbd\FormServicio$5.class
 formularios\FormUsuario$7.class
@@ -21,7 +25,10 @@ clases\CRefugioMascota.class
 ec\edu\espol\petbackersbd\FormDonación$4.class
 formularios\FormUsuario$11.class
 formularios\FormUsuario$5.class
+formularios\FormRefugioMascota$2.class
+formularios\FormRefugioMascota$7.class
 ec\edu\espol\petbackersbd\FormServicio$3.class
+formularios\FormRefugioMascota$4.class
 formularios\FormUsuario$4.class
 ec\edu\espol\petbackersbd\FormDonación$5.class
 formularios\FormRefugioMascota.class
@@ -32,3 +39,4 @@ ec\edu\espol\petbackersbd\Inicio.class
 formularios\FormUsuario$12.class
 clases\CUsuarios.class
 ec\edu\espol\petbackersbd\FormDonación.class
+formularios\FormRefugioMascota$9.class

@@ -118,7 +118,6 @@ public class CUsuarios {
                 paramVales.setText((tablaUsuarios.getValueAt(fila, 7)).toString());
                 paramTarjeta.setText((tablaUsuarios.getValueAt(fila, 8)).toString());
                 comboTipo.setSelectedItem((tablaUsuarios.getValueAt(fila, 9)).toString());
-                
                 Image imagen = (Image) tablaUsuarios.getValueAt(fila, 5);
                 ImageIcon originalIcon = new ImageIcon(imagen);
                 int lblwidth = foto.getWidth();

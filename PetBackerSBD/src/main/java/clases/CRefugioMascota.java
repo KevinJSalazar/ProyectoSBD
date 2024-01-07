@@ -16,6 +16,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -27,63 +28,65 @@ import javax.swing.table.TableRowSorter;
  */
 public class CRefugioMascota {
     
-    public void saveUser(JTextField paramCorreo, JTextField paramNombre, JTextField paramContraseña, JTextField paramTelefono, File foto, JTextField paramRedSocial, JTextField paramVales, JTextField paramTarjeta, JComboBox comboTipo){
+    public void saveShelter(JTextField correo, JTextField nombre, JTextArea descripcion, File foto, JTextField paginaWeb, JTextField direccion, JTextField estado, JTextField ciudad, JTextField telefono, JTextField telefonoOp){
         CConexion objetoConexion = new CConexion();
-        String consulta = "insert into Usuario (email, nickname, contraseña, telefono, foto, red_social, vales, tarjeta, tipo) values(?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String consulta = "insert into Refugiomascotas (email, nombre, descripcion, foto, pagina_web, direccion, estado, ciudad, telefono, telefonoOp) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         
         try {
             FileInputStream fis = new FileInputStream(foto);
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-            cs.setString(1, paramCorreo.getText());
-            cs.setString(2, paramNombre.getText());
-            cs.setString(3, paramContraseña.getText());
-            cs.setString(4, paramTelefono.getText());
-            cs.setBinaryStream(5, fis, (int)foto.length());
-            cs.setString(6, paramRedSocial.getText());
-            cs.setString(7, paramVales.getText());
-            cs.setInt(8, Integer.parseInt(paramTarjeta.getText()));
-            String tipoUsuario = comboTipo.getSelectedItem().toString();
-            cs.setString(9, tipoUsuario);
+            cs.setString(1, correo.getText());
+            cs.setString(2, nombre.getText());
+            cs.setString(3, descripcion.getText());
+            cs.setBinaryStream(4, fis, (int)foto.length());
+            cs.setString(5, paginaWeb.getText());
+            cs.setString(6, direccion.getText());
+            cs.setString(7, estado.getText());
+            cs.setString(8, ciudad.getText());
+            cs.setString(9, telefono.getText());
+            cs.setString(10, telefonoOp.getText());
             cs.execute();
-            JOptionPane.showMessageDialog(null, "El usuario se guardó correctamente.");
+            JOptionPane.showMessageDialog(null, "El refugio se guardó correctamente.");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "El usuario no se pudo guardar, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "El refugio no se pudo guardar, error: " + e.toString());
         }
     }
     
-    public void showUsers(JTable paramTablaTotalUsuarios){
+    public void showShelters(JTable tablaTotalRefugios){
         CConexion objetoConexion = new CConexion();
         DefaultTableModel modelo = new DefaultTableModel();
         TableRowSorter<TableModel> OrdernarTabla = new TableRowSorter<TableModel>(modelo);
-        paramTablaTotalUsuarios.setRowSorter(OrdernarTabla);
+        tablaTotalRefugios.setRowSorter(OrdernarTabla);
         
         modelo.addColumn("Id");
         modelo.addColumn("Correo");
         modelo.addColumn("Nombre");
-        modelo.addColumn("Contraseña");
-        modelo.addColumn("Telefono");
+        modelo.addColumn("Descripcion");
         modelo.addColumn("Foto");
-        modelo.addColumn("Red Social");
-        modelo.addColumn("Vales");
-        modelo.addColumn("Tarjeta");
-        modelo.addColumn("Tipo");
-        paramTablaTotalUsuarios.setModel(modelo);
+        modelo.addColumn("Página web");
+        modelo.addColumn("Dirección");
+        modelo.addColumn("Estado");
+        modelo.addColumn("Ciudad");
+        modelo.addColumn("Teléfono");
+        modelo.addColumn("Teléfono Opcional");
+        tablaTotalRefugios.setModel(modelo);
         
-        String sql = "select * from usuario;";
+        String sql = "select * from refugiomascotas;";
         
         try {
             Statement st = objetoConexion.estableceConexion().createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                String id = rs.getString("idusu");
+                String id = rs.getString("idRef");
                 String correo = rs.getString("email");
-                String nombre= rs.getString("nickname");
-                String contraseña = rs.getString("contraseña");
+                String nombre= rs.getString("nombre");
+                String descripcion = rs.getString("descripcion");
+                String paginaWeb = rs.getString("pagina_web");
+                String direccion = rs.getString("direccion");
+                String estado = rs.getString("estado");
+                String ciudad = rs.getString("ciudad");
                 String telefono = rs.getString("telefono");
-                String redSocial = rs.getString("red_social");
-                String vales = rs.getString("vales");
-                String tarjeta = rs.getString("tarjeta");
-                String tipo = rs.getString("tipo");
+                String telefonoOp = rs.getString("telefonoOp");
                 
                 byte [] imagesBytes = rs.getBytes("foto");
                 Image foto = null;
@@ -96,30 +99,30 @@ public class CRefugioMascota {
                         JOptionPane.showMessageDialog(null, "Error: " + e.toString());
                     }
                 }
-                
-                modelo.addRow(new Object[]{id,correo,nombre,contraseña,telefono,foto,redSocial,vales,tarjeta,tipo});
+                modelo.addRow(new Object[]{id,correo,nombre,descripcion,foto,paginaWeb,direccion,estado,ciudad,telefono,telefonoOp});
             }
-            paramTablaTotalUsuarios.setModel(modelo);
+            tablaTotalRefugios.setModel(modelo);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se pudo mostrar los registros, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "Error al cargar los registros: " + e.toString());
         }
     }
     
-    public void selectUser(JTable tablaUsuarios, JTextField paramId, JTextField paramCorreo, JTextField paramNombre, JTextField paramContraseña, JTextField paramTelefono, JLabel foto, JTextField paramRedSocial, JTextField paramVales, JTextField paramTarjeta, JComboBox comboTipo){
+    public void selectShelters(JTable tablaRefugios, JTextField id, JTextField correo, JTextField nombre, JTextArea descripcion, JLabel foto, JTextField paginaWeb, JTextField direccion, JTextField estado, JTextField ciudad, JTextField telefono, JTextField telefonoOp){
         try {
-            int fila = tablaUsuarios.getSelectedRow();
+            int fila = tablaRefugios.getSelectedRow();
             if (fila >= 0){
-                paramId.setText((tablaUsuarios.getValueAt(fila, 0)).toString());
-                paramCorreo.setText((tablaUsuarios.getValueAt(fila, 1)).toString());
-                paramNombre.setText((tablaUsuarios.getValueAt(fila, 2)).toString());
-                paramContraseña.setText((tablaUsuarios.getValueAt(fila, 3)).toString());
-                paramTelefono.setText((tablaUsuarios.getValueAt(fila, 4)).toString());
-                paramRedSocial.setText((tablaUsuarios.getValueAt(fila, 6)).toString());
-                paramVales.setText((tablaUsuarios.getValueAt(fila, 7)).toString());
-                paramTarjeta.setText((tablaUsuarios.getValueAt(fila, 8)).toString());
-                comboTipo.setSelectedItem((tablaUsuarios.getValueAt(fila, 9)).toString());
+                id.setText((tablaRefugios.getValueAt(fila, 0)).toString());
+                correo.setText((tablaRefugios.getValueAt(fila, 1)).toString());
+                nombre.setText((tablaRefugios.getValueAt(fila, 2)).toString());
+                descripcion.setText((tablaRefugios.getValueAt(fila, 3)).toString());
+                paginaWeb.setText((tablaRefugios.getValueAt(fila, 5)).toString());
+                direccion.setText((tablaRefugios.getValueAt(fila, 6)).toString());
+                estado.setText((tablaRefugios.getValueAt(fila, 7)).toString());
+                ciudad.setText((tablaRefugios.getValueAt(fila, 8)).toString());
+                telefono.setText((tablaRefugios.getValueAt(fila, 9)).toString());
+                telefonoOp.setText((tablaRefugios.getValueAt(fila, 10)).toString());
                 
-                Image imagen = (Image) tablaUsuarios.getValueAt(fila, 5);
+                Image imagen = (Image) tablaRefugios.getValueAt(fila, 4);
                 ImageIcon originalIcon = new ImageIcon(imagen);
                 int lblwidth = foto.getWidth();
                 int lblheight = foto.getHeight();
@@ -127,47 +130,48 @@ public class CRefugioMascota {
                 foto.setIcon(new ImageIcon(scaledImage));
             }
             else
-                JOptionPane.showMessageDialog(null, "Usuario no seleccionado");
+                JOptionPane.showMessageDialog(null, "Refugio no seleccionado");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error de selección, error: " + e.toString());
         }
     }
     
-    public void modifyUser(JTextField paramId, JTextField paramCorreo, JTextField paramNombre, JTextField paramContraseña, JTextField paramTelefono, File foto, JTextField paramRedSocial, JTextField paramVales, JTextField paramTarjeta, JComboBox comboTipo){
+    public void modifyShelters(JTextField id, JTextField correo, JTextField nombre, JTextArea descripcion, File foto, JTextField paginaWeb, JTextField direccion, JTextField estado, JTextField ciudad, JTextField telefono, JTextField telefonoOp){
         CConexion objetoConexion = new CConexion();
-        String consulta = "update usuario u set u.email = ?, u.nickname = ?, u.contraseña = ?, u.telefono = ?, u.foto = ?, u.red_social = ?, u.vales = ?, u.tarjeta = ?, u.tipo = ? where u.idusu = ?;";
+        String consulta = "update refugiomascotas rm set rm.email = ?, rm.nombre = ?, rm.descripcion = ?, rm.foto = ?, rm.pagina_web = ?, rm.direccion = ?, rm.estado = ?, rm.ciudad = ?, rm.telefono = ?, rm.telefonoOp = ? where rm.idref = ?;";
         
         try {
             FileInputStream fis = new FileInputStream(foto);
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-            cs.setString(1, paramCorreo.getText());
-            cs.setString(2, paramNombre.getText());
-            cs.setString(3, paramContraseña.getText());
-            cs.setString(4, paramTelefono.getText());
-            cs.setBinaryStream(5, fis,(int)foto.length());
-            cs.setString(6, paramRedSocial.getText());
-            cs.setInt(7, Integer.parseInt(paramVales.getText()));
-            cs.setInt(8, Integer.parseInt(paramTarjeta.getText()));
-            cs.setString(9, comboTipo.getSelectedItem().toString());
-            cs.setInt(10, Integer.parseInt(paramId.getText()));
+            cs.setString(1, correo.getText());
+            cs.setString(2, nombre.getText());
+            cs.setString(3, descripcion.getText());
+            cs.setBinaryStream(4, fis,(int)foto.length());
+            cs.setString(5, paginaWeb.getText());
+            cs.setString(6, direccion.getText());
+            cs.setString(7, estado.getText());
+            cs.setString(8, ciudad.getText());
+            cs.setString(9, telefono.getText());
+            cs.setString(10, telefonoOp.getText());
+            cs.setInt(11, Integer.parseInt(id.getText()));
             cs.execute();
-            JOptionPane.showMessageDialog(null, "El usuario se modificó correctamente.");
+            JOptionPane.showMessageDialog(null, "El refugio se modificó correctamente.");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "El usuario no se pudo modificar, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "El refugio no se pudo modificar, error: " + e.toString());
         }
     }
     
-    public void deleteUser(JTextField paramId){
+    public void deleteShelter(JTextField paramId){
         CConexion objetoConexion = new CConexion();
-        String consulta = "delete from usuario u where u.idusu = ?;";
+        String consulta = "delete from refugiomascotas rm where rm.idRef = ?;";
         
         try {
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
             cs.setInt(1, Integer.parseInt(paramId.getText()));
             cs.execute();
-            JOptionPane.showMessageDialog(null, "El usuario se eliminó correctamente.");
+            JOptionPane.showMessageDialog(null, "El refugio se eliminó correctamente.");
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "El usuario no se pudo eliminar, error: " + e.toString());
+            JOptionPane.showMessageDialog(null, "El refugio no se pudo eliminar, error: " + e.toString());
         }
     }
 }
