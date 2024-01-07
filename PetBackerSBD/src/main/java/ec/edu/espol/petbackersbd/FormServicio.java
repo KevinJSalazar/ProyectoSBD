@@ -11,9 +11,20 @@ package ec.edu.espol.petbackersbd;
  */
 public class FormServicio extends javax.swing.JFrame {
 
-    /** Creates new form FormDonación */
+    /** Creates new form FormServicio */
     public FormServicio() {
         initComponents();
+        
+        txtidSer.setEnabled(false);
+        txtidCui.setEnabled(false);
+        txtidTipoSer.setEnabled(false);
+        
+        this.setLocationRelativeTo(null);
+        
+        CServicio objetoServicio = new CServicio();
+        objetoServicio.mostrarServicio(tbServicios);
+        
+        
     }
 
     /** This method is called from within the constructor to
@@ -74,6 +85,11 @@ public class FormServicio extends javax.swing.JFrame {
         jLabel6.setText("Pais");
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -206,6 +222,11 @@ public class FormServicio extends javax.swing.JFrame {
 
             }
         ));
+        tbServicios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbServiciosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbServicios);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -255,10 +276,20 @@ public class FormServicio extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+        
+        CServicio objetoServicio = new CServicio();
+        objetoServicio.eliminarServicio(txtidSer);
+        objetoServicio.mostrarServicio(tbServicios);
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
+        
+        CServicio objetoServicio = new CServicio();
+        objetoServicio.modificarServicio(txtidSer, txtTitulo, txtDescripcion, txtPrecio, txtPais, txtProvincia, txtCiudad);
+        objetoServicio.mostrarServicio(tbServicios);
+        
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void txtidTipoSerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidTipoSerActionPerformed
@@ -268,6 +299,23 @@ public class FormServicio extends javax.swing.JFrame {
     private void txtCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCiudadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCiudadActionPerformed
+
+    private void tbServiciosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbServiciosMouseClicked
+        // TODO add your handling code here:
+        
+          CServicio objetoServicio = new CServicio();
+          objetoServicio.seleccionarServicio(tbServicios, txtidSer, txtidCui, txtidTipoSer, txtTitulo, txtDescripcion, txtPrecio, txtPais, txtProvincia, txtCiudad);
+        
+    }//GEN-LAST:event_tbServiciosMouseClicked
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        
+        CServicio objetoServicio = new CServicio();
+        objetoServicio.InsertarServicio(txtTitulo, txtDescripcion, txtPrecio, txtPais, txtProvincia, txtCiudad);
+        objetoServicio.mostrarServicio(tbServicios);
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments

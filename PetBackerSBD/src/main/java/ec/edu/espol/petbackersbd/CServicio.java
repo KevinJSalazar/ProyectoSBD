@@ -4,12 +4,20 @@
  */
 package ec.edu.espol.petbackersbd;
 
+import clases.CConexion;
 import java.sql.CallableStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -108,7 +116,8 @@ public class CServicio {
         setProvincia(paramProvincia.getText());
         setCiudad(paramCiudad.getText());
          
-        Conexion objetoConexion = new CConexion();
+        
+        CConexion objetoConexion = new CConexion();
         
         String consulta = "insert into Servicio (titulo, descripcion, precio, pais, provincia, ciudad) values (?,?,?,?,?,?);";
         
@@ -133,5 +142,151 @@ public class CServicio {
         
     }
     
+        public void mostrarServicio(JTable paramTbl)
+        {
+            CConexion objetoConexion = new CConexion();
+            
+            DefaultTableModel modelo = new DefaultTableModel();
+            
+            TableRowSorter<TableModel> ordenarTabla = new TableRowSorter<TableModel>(modelo);
+            paramTbl.setRowSorter(ordenarTabla);
+            
+            String sql = "";
+            
+            modelo.addColumn("idServicio");
+            modelo.addColumn("idCuidador");
+            modelo.addColumn("Titulo");
+            modelo.addColumn("Descripción");
+            modelo.addColumn("Precio");
+            modelo.addColumn("País");
+            modelo.addColumn("Provincia");
+            modelo.addColumn("Ciudad");
+            modelo.addColumn("idTipoServicio");
+            
+            paramTbl.setModel(modelo);
+            
+            sql = "select * from Servicio;";
+            
+            String[] datos = new String[9];
+            Statement st;
+            
+            try {
+                
+                st = objetoConexion.estableceConexion().createStatement();
+                
+                ResultSet rs = st.executeQuery(sql);
+                
+                while(rs.next())
+                {
+                    datos[0] = rs.getString(1);
+                    datos[1] = rs.getString(2);
+                    datos[2] = rs.getString(3);
+                    datos[3] = rs.getString(4);
+                    datos[4] = rs.getString(5);
+                    datos[5] = rs.getString(6);
+                    datos[6] = rs.getString(7);
+                    datos[7] = rs.getString(8);
+                    datos[8] = rs.getString(9);
+                    
+                    modelo.addRow(datos);
+                }
+                
+                paramTbl.setModel(modelo);
+                
+            } catch (Exception e) {
+                
+                JOptionPane.showMessageDialog(null, "No se pudo mostrar los registros, error: " + e.toString());
+            }
+            
+        }
+    
+       public void seleccionarServicio(JTable paramTablaServicio,JTextField paramidSer, JTextField paramidCui, JTextField paramidTipoSer, JTextField paramTitulo,JTextField paramDescripcion, JTextField paramPrecio, JTextField paramPais, JTextField paramProvincia, JTextField paramCiudad)
+    {
+        try {
+            int fila = paramTablaServicio.getSelectedRow();
+            
+            if(fila >= 0)
+            {
+                paramidSer.setText(paramTablaServicio.getValueAt(fila, 0).toString());
+                paramidCui.setText(paramTablaServicio.getValueAt(fila, 1).toString());
+                paramidTipoSer.setText(paramTablaServicio.getValueAt(fila, 8).toString());
+                paramTitulo.setText(paramTablaServicio.getValueAt(fila, 2).toString());
+                paramDescripcion.setText(paramTablaServicio.getValueAt(fila, 3).toString());
+                paramPrecio.setText(paramTablaServicio.getValueAt(fila, 4).toString());
+                paramPais.setText(paramTablaServicio.getValueAt(fila, 5).toString());
+                paramProvincia.setText(paramTablaServicio.getValueAt(fila, 6).toString());
+                paramCiudad.setText(paramTablaServicio.getValueAt(fila, 7).toString());
+            }
+            
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Fila no seleccionada");
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error de seleccion, error: " + e.toString());
+        }
+    }
+    
+    public void modificarServicio(JTextField paramIdSer, JTextField paramTitulo,JTextField paramDescripcion, JTextField paramPrecio, JTextField paramPais, JTextField paramProvincia, JTextField paramCiudad)
+    {
+
+        setTitulo(paramTitulo.getText());
+        setDescripción(paramDescripcion.getText());
+        setPrecio(Double.parseDouble(paramPrecio.getText()));
+        setPais(paramPais.getText());
+        setProvincia(paramProvincia.getText());
+        setCiudad(paramCiudad.getText());
+ 
+        CConexion objetoConexion = new CConexion();
+        
+        String consulta = "Update Servicio set servicio.titulo = ?, servicio.descripcion = ?, servicio.precio = ?, servicio.pais = ?, servicio.provincia = ?, servicio.ciudad = ? where servicio.idSer = ?;";
+        
+        try {
+            
+            CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
+            
+            cs.setString(1,getTitulo());
+            cs.setString(2, getDescripción());
+            cs.setDouble(3, getPrecio());
+            cs.setString(4, getPais());
+            cs.setString(5, getProvincia());
+            cs.setString(6, getCiudad());
+            cs.setInt(7, Integer.parseInt(paramIdSer.getText()));
+
+            cs.execute();
+            
+            JOptionPane.showMessageDialog(null, "Modificación exitosa");
+            
+        } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "No se pudo modificar, error: " + e.toString());
+            
+        }
+    }
+    
+    public void eliminarServicio(JTextField paramidSer)
+    {
+        setIdSer(Integer.parseInt(paramidSer.getText()));
+        
+        CConexion objetoConexion = new CConexion();
+        
+        String consulta = "Delete From Servicio Where Servicio.idSer = ?;";
+        
+        try {
+            
+            CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
+            cs.setInt(1, getIdSer());
+            
+            cs.execute();
+            
+            JOptionPane.showMessageDialog(null, "Eliminado para siempre");
+            
+        } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "No se pudo eliminar, error: " + e.toString());
+            
+        }
+    }
     
 }

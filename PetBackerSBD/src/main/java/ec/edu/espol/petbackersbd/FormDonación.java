@@ -15,8 +15,17 @@ public class FormDonación extends javax.swing.JFrame {
     public FormDonación() {
         initComponents();
         
+        this.setLocationRelativeTo(null);
+        
+        txtidDon.setEnabled(false);
+        txtidRef.setEnabled(false);
+        txtidUsu.setEnabled(false);
+        
         //CConexion objetoConexion = new CConexion();
         //objetoConexion.estableceConexion();
+        
+        CDonación objetoDonacion = new CDonación();
+        objetoDonacion.mostrarDonacion(tbDonaciones);
     }
 
     /** This method is called from within the constructor to
@@ -176,6 +185,11 @@ public class FormDonación extends javax.swing.JFrame {
 
             }
         ));
+        tbDonaciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbDonacionesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbDonaciones);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -225,17 +239,36 @@ public class FormDonación extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+        
+        CDonación objetoDonación = new CDonación();
+        objetoDonación.eliminarDonacion(txtidDon);
+        objetoDonación.mostrarDonacion(tbDonaciones);
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
+        
+        CDonación objetoDonación = new CDonación();
+        objetoDonación.modificarDonación(txtidDon,txtFecha, txtMonto, txtCupón);
+        objetoDonación.mostrarDonacion(tbDonaciones);
+        
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         
         CDonación objetoDonación = new CDonación();
         objetoDonación.InsertarDonacion(txtFecha, txtMonto, txtCupón);
+        objetoDonación.mostrarDonacion(tbDonaciones);
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void tbDonacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDonacionesMouseClicked
+        // TODO add your handling code here:
+        
+        CDonación objetoDonación = new CDonación();
+        objetoDonación.seleccionarDonación(tbDonaciones, txtidDon, txtidRef, txtidUsu, txtFecha, txtMonto, txtCupón);
+        
+    }//GEN-LAST:event_tbDonacionesMouseClicked
 
     /**
      * @param args the command line arguments
