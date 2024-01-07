@@ -24,12 +24,11 @@ public class FormUsuario extends javax.swing.JFrame {
      */
     public FormUsuario() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        txtId.setEnabled(false);
-//        CConexion objetoConexion = new CConexion();
-//        objetoConexion.estableceConexion();
         CUsuarios objetoUsuarios = new CUsuarios();
         objetoUsuarios.showUsers(tbTotalUsuarios);
+        this.setLocationRelativeTo(null);
+        txtId.setEnabled(false);
+        txtRutaImagen.setEnabled(false);
     }
 
     /**

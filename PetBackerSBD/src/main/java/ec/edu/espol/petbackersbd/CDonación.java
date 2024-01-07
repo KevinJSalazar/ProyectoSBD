@@ -81,50 +81,50 @@ public class CDonación {
     
     public void InsertarDonacion(JTextField paramFecha,JTextField paramMonto, JTextField paramCupon)
     {
-        try {
-            setFecha(new SimpleDateFormat("YYYY-MM-dd", Locale.ENGLISH).parse(paramFecha.getText()));
-        } catch (ParseException ex) {
-            ex.printStackTrace();
-        }
-        
-        setMonto(Double.parseDouble(paramMonto.getText()));
-        setCupon(Double.parseDouble(paramCupon.getText()));
-        
-        Conexion objetoConexion = new CConexion();
-        
-        String consulta = "insert into Donacion (fecha,monto,cupon) values (?,?,?);";
-        
-        try {
-            
-            CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-            cs.setDate(1, (java.sql.Date) getFecha());
-            cs.setDouble(2, getMonto());
-            cs.setDouble(3, getCupon());
-            
-            cs.execute();
-            
-            JOptionPane.showMessageDialog(null, "Se insertó correctamente la donación");
-            
-        } catch (Exception e) {
-            
-            JOptionPane.showMessageDialog(null, "No se insertó correctamente la donación, error: " + e.toString());
-        }
+//        try {
+//            setFecha(new SimpleDateFormat("YYYY-MM-dd", Locale.ENGLISH).parse(paramFecha.getText()));
+//        } catch (ParseException ex) {
+//            ex.printStackTrace();
+//        }
+//        
+//        setMonto(Double.parseDouble(paramMonto.getText()));
+//        setCupon(Double.parseDouble(paramCupon.getText()));
+//        
+//        Conexion objetoConexion = new CConexion();
+//        
+//        String consulta = "insert into Donacion (fecha,monto,cupon) values (?,?,?);";
+//        
+//        try {
+//            
+//            CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
+//            cs.setDate(1, (java.sql.Date) getFecha());
+//            cs.setDouble(2, getMonto());
+//            cs.setDouble(3, getCupon());
+//            
+//            cs.execute();
+//            
+//            JOptionPane.showMessageDialog(null, "Se insertó correctamente la donación");
+//            
+//        } catch (Exception e) {
+//            
+//            JOptionPane.showMessageDialog(null, "No se insertó correctamente la donación, error: " + e.toString());
+//        }
 
     }
     
     public void mostrarDonacion(JTable paramTbl)
         {
-            CConexion objetoConexion = new CConexion();
-            
-            DefaultTableModel modelo = new DefaultTableModel();
-            
-            TableRowSorter<TableModel> ordenarTabla = new TableRowSorter<TableModel>(modelo);
-            paramTbl.setRowSorter(ordenarTabla);
-            
-            String sql = "";
-            
-            modelo.addColumn("id");
-            modelo.addColumn();
+//            CConexion objetoConexion = new CConexion();
+//            
+//            DefaultTableModel modelo = new DefaultTableModel();
+//            
+//            TableRowSorter<TableModel> ordenarTabla = new TableRowSorter<TableModel>(modelo);
+//            paramTbl.setRowSorter(ordenarTabla);
+//            
+//            String sql = "";
+//            
+//            modelo.addColumn("id");
+//            modelo.addColumn();
         }
     
 }

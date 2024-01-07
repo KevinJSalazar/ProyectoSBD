@@ -100,36 +100,36 @@ public class CServicio {
     
     public void InsertarServicio(JTextField paramTitulo,JTextField paramDescripcion, JTextField paramPrecio, JTextField paramPais, JTextField paramProvincia, JTextField paramCiudad)
     {
-        
-        setTitulo(paramTitulo.getText());
-        setDescripción(paramDescripcion.getText());
-        setPrecio(Double.parseDouble(paramPrecio.getText()));
-        setPais(paramPais.getText());
-        setProvincia(paramProvincia.getText());
-        setCiudad(paramCiudad.getText());
-         
-        Conexion objetoConexion = new CConexion();
-        
-        String consulta = "insert into Servicio (titulo, descripcion, precio, pais, provincia, ciudad) values (?,?,?,?,?,?);";
-        
-        try {
-            
-            CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-            cs.setString(1, getTitulo());
-            cs.setString(2, getDescripción());
-            cs.setDouble(3, getPrecio());
-            cs.setString(4, getPais());
-            cs.setString(5, getProvincia());
-            cs.setString(6, getCiudad());
-            
-            cs.execute();
-            
-            JOptionPane.showMessageDialog(null, "Se insertó correctamente el servicio");
-            
-        } catch (Exception e) {
-            
-            JOptionPane.showMessageDialog(null, "No se insertó correctamente el servicio, error: " + e.toString());
-        }
+//        
+//        setTitulo(paramTitulo.getText());
+//        setDescripción(paramDescripcion.getText());
+//        setPrecio(Double.parseDouble(paramPrecio.getText()));
+//        setPais(paramPais.getText());
+//        setProvincia(paramProvincia.getText());
+//        setCiudad(paramCiudad.getText());
+//         
+//        Conexion objetoConexion = new CConexion();
+//        
+//        String consulta = "insert into Servicio (titulo, descripcion, precio, pais, provincia, ciudad) values (?,?,?,?,?,?);";
+//        
+//        try {
+//            
+//            CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
+//            cs.setString(1, getTitulo());
+//            cs.setString(2, getDescripción());
+//            cs.setDouble(3, getPrecio());
+//            cs.setString(4, getPais());
+//            cs.setString(5, getProvincia());
+//            cs.setString(6, getCiudad());
+//            
+//            cs.execute();
+//            
+//            JOptionPane.showMessageDialog(null, "Se insertó correctamente el servicio");
+//            
+//        } catch (Exception e) {
+//            
+//            JOptionPane.showMessageDialog(null, "No se insertó correctamente el servicio, error: " + e.toString());
+//        }
         
     }
     
