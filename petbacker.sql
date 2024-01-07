@@ -18,7 +18,7 @@ create table RefugioMascotas(
 create table Usuario(
 	idUsu int not null auto_increment unique,
     email char(50) not null unique,
-    nickname char(250) not null,
+    nickname char(250) not null unique,
     contraseña char(50) not null,
     telefono char(20),
     foto longblob,
@@ -55,28 +55,28 @@ create table TipoServicio(
 );
 create table Tamaño(
 	idTam int not null auto_increment unique,
-    idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 100000),
+    idTipoSer int not null check(idTipoSer > 0 AND idTipoSer < 100000),
     tamaño char(30) not null check(tamaño IN ("1-5kg", "5-10kg", "10-20kg", "20-40kg", "40+kg")),
     primary key(idTam, idTipoSer),
     foreign key(idtipoSer) references TipoServicio(idTipoSer)
 );
 create table TipoMascotas(
 	idTipoMas int not null auto_increment unique,
-    idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 100000),
+    idTipoSer int not null check(idTipoSer > 0 AND idTipoSer < 100000),
     mascota char(30) not null check(mascota IN ("Perro", "Gato", "Conejo", "Conejillo de indias", "Hurón", "Ave", "Reptil", "Otros")),
     primary key(idTipoMas, idTipoSer),
     foreign key(idtipoSer) references TipoServicio(idTipoSer)
 );
 create table TipoAseo(
 	idTipoAseo int not null auto_increment unique,
-    idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 100000),
+    idTipoSer int not null check(idTipoSer > 0 AND idTipoSer < 100000),
     aseo char(50) not null check(aseo IN ("básico", "completo", "ducha", "afeitado de almohadillas de patas", "recorte y relleno de uñas")),
     primary key(idTipoAseo, idTipoSer),
     foreign key(idtipoSer) references TipoServicio(idTipoSer)
 );
 create table Servicio(
 	idSer int not null auto_increment unique,
-    idCui int not null unique check(idCui > 0 AND idCui < 100000),
+    idCui int not null check(idCui > 0 AND idCui < 100000),
     titulo char(50) not null,
     descripcion char(250) not null,
     precio double not null,
@@ -90,9 +90,9 @@ create table Servicio(
 );
 create table Solicitud(
 	idSol int not null auto_increment unique,
-	idSer int not null unique check(idSer > 0 AND idSer < 100000),
-    idUsu int not null unique check(idUsu > 0 AND idUsu < 100000),
-    idCui int not null unique check(idCui > 0 AND idCui < 100000),
+	idSer int not null check(idSer > 0 AND idSer < 100000),
+    idUsu int not null check(idUsu > 0 AND idUsu < 100000),
+    idCui int not null check(idCui > 0 AND idCui < 100000),
     constraint diferentes1 check(idUsu != idCui),
     fecha date not null,
     primary key(idSol, idSer, idUsu, idCui),
@@ -102,9 +102,9 @@ create table Solicitud(
 );
 create table Comentario(
 	idSol int not null auto_increment unique,
-	idSer int not null unique check(idSer > 0 AND idSer < 100000),
-    idUsu int not null unique check(idUsu > 0 AND idUsu < 100000),
-    idCui int not null unique check(idCui > 0 AND idCui < 100000),
+	idSer int not null check(idSer > 0 AND idSer < 100000),
+    idUsu int not null check(idUsu > 0 AND idUsu < 100000),
+    idCui int not null check(idCui > 0 AND idCui < 100000),
     constraint diferentes2 check(idUsu != idCui),
     fecha date not null,
     valoracion double not null,
