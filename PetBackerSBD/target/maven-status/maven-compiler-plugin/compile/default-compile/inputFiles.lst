@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Alejandro Diez\Desktop\GitHub\ProyectoSBD\PetBackerSBD\src\main\java\clases\CUsuarios.java
 C:\Users\Alejandro Diez\Desktop\GitHub\ProyectoSBD\PetBackerSBD\src\main\java\clases\CTipodeServicio.java
 C:\Users\Alejandro Diez\Desktop\GitHub\ProyectoSBD\PetBackerSBD\src\main\java\ec\edu\espol\petbackersbd\Inicio.java
@@ -8,3 +9,15 @@ C:\Users\Alejandro Diez\Desktop\GitHub\ProyectoSBD\PetBackerSBD\src\main\java\cl
 C:\Users\Alejandro Diez\Desktop\GitHub\ProyectoSBD\PetBackerSBD\src\main\java\formularios\FormTipoAseo.java
 C:\Users\Alejandro Diez\Desktop\GitHub\ProyectoSBD\PetBackerSBD\src\main\java\formularios\FormTipodeServicio.java
 C:\Users\Alejandro Diez\Desktop\GitHub\ProyectoSBD\PetBackerSBD\src\main\java\formularios\FormUsuario.java
+=======
+C:\Users\omasa\OneDrive\Escritorio\ad\ProyectoSBD\PetBackerSBD\src\main\java\ec\edu\espol\petbackersbd\FormDonación.java
+C:\Users\omasa\OneDrive\Escritorio\ad\ProyectoSBD\PetBackerSBD\src\main\java\clases\CRefugioMascota.java
+C:\Users\omasa\OneDrive\Escritorio\ad\ProyectoSBD\PetBackerSBD\src\main\java\ec\edu\espol\petbackersbd\CDonación.java
+C:\Users\omasa\OneDrive\Escritorio\ad\ProyectoSBD\PetBackerSBD\src\main\java\clases\CConexion.java
+C:\Users\omasa\OneDrive\Escritorio\ad\ProyectoSBD\PetBackerSBD\src\main\java\formularios\FormUsuario.java
+C:\Users\omasa\OneDrive\Escritorio\ad\ProyectoSBD\PetBackerSBD\src\main\java\ec\edu\espol\petbackersbd\CServicio.java
+C:\Users\omasa\OneDrive\Escritorio\ad\ProyectoSBD\PetBackerSBD\src\main\java\ec\edu\espol\petbackersbd\FormServicio.java
+C:\Users\omasa\OneDrive\Escritorio\ad\ProyectoSBD\PetBackerSBD\src\main\java\ec\edu\espol\petbackersbd\Inicio.java
+C:\Users\omasa\OneDrive\Escritorio\ad\ProyectoSBD\PetBackerSBD\src\main\java\clases\CUsuarios.java
+C:\Users\omasa\OneDrive\Escritorio\ad\ProyectoSBD\PetBackerSBD\src\main\java\formularios\FormRefugioMascota.java
+>>>>>>> d054a30755f43cb7c5cf978215f37314385079fa

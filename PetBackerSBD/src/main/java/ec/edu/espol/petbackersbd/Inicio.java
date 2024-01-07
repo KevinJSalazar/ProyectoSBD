@@ -7,6 +7,7 @@ package ec.edu.espol.petbackersbd;
 import formularios.FormTipoAseo;
 import formularios.FormTipoMascota;
 import formularios.FormTipodeServicio;
+import formularios.FormRefugioMascota;
 import formularios.FormUsuario;
 
 /**
@@ -16,7 +17,7 @@ import formularios.FormUsuario;
 public class Inicio {
     
     public static void main(String[] args) {
-        FormTipoAseo objetoFormulario = new FormTipoAseo();
+        FormUsuario objetoFormulario = new FormUsuario();
         objetoFormulario.setVisible(true);
     }
 }
