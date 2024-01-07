@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -132,7 +131,7 @@ public class CRefugioMascota {
             else
                 JOptionPane.showMessageDialog(null, "Refugio no seleccionado");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error de selección, error: " + e.toString());
+//            JOptionPane.showMessageDialog(null, "Error de selección, error: " + e.toString());
         }
     }
     

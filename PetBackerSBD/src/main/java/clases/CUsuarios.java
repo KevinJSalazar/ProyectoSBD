@@ -41,7 +41,7 @@ public class CUsuarios {
             cs.setBinaryStream(5, fis, (int)foto.length());
             cs.setString(6, paramRedSocial.getText());
             cs.setString(7, paramVales.getText());
-            cs.setInt(8, Integer.parseInt(paramTarjeta.getText()));
+            cs.setString(8, paramTarjeta.getText());
             String tipoUsuario = comboTipo.getSelectedItem().toString();
             cs.setString(9, tipoUsuario);
             cs.execute();
@@ -128,7 +128,7 @@ public class CUsuarios {
             else
                 JOptionPane.showMessageDialog(null, "Usuario no seleccionado");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error de selección, error: " + e.toString());
+//            JOptionPane.showMessageDialog(null, "Error de selección, error: " + e.toString());
         }
     }
     
@@ -146,7 +146,7 @@ public class CUsuarios {
             cs.setBinaryStream(5, fis,(int)foto.length());
             cs.setString(6, paramRedSocial.getText());
             cs.setInt(7, Integer.parseInt(paramVales.getText()));
-            cs.setInt(8, Integer.parseInt(paramTarjeta.getText()));
+            cs.setString(8, paramTarjeta.getText());
             cs.setString(9, comboTipo.getSelectedItem().toString());
             cs.setInt(10, Integer.parseInt(paramId.getText()));
             cs.execute();
