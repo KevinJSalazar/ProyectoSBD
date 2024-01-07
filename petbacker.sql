@@ -6,7 +6,7 @@ create table RefugioMascotas(
     email char(50) not null unique,
     nombre char(100) not null unique,
     descripcion char(250) not null,
-    foto longblob not null,
+    foto longblob,
     pagina_web char(50) not null,
     direccion char(50) not null,
     estado char(30) not null,
@@ -24,7 +24,7 @@ create table Usuario(
     foto longblob,
     red_social char(30),
     vales int not null default 0,
-    tarjeta int,
+    tarjeta char(20),
     tipo char(20) check(tipo = "Cuidador" OR tipo = "Default"),
     primary key(idUsu)
 );
@@ -40,7 +40,7 @@ create table Donacion(
     foreign key(idUsu) references Usuario(idUsu)
 );
 create table TipoServicio(
-	idTipoSer int not null unique AUTO_INCREMENT,
+	idTipoSer int not null auto_increment unique,
     lugar_recogida char(250) not null,
     fecha_inicio date not null,
     numero_dias int not null check(numero_dias >= 1 AND numero_dias <= 365),
@@ -50,7 +50,7 @@ create table TipoServicio(
     numero_mascotas int not null check(numero_mascotas >= 1 AND numero_mascotas <= 8),
     tipo char(50) not null check(tipo IN ("Alojamiento", "Paseo de Perros", "Cuidado de Mascotas", "Guardería", "Taxi de Mascotas", "Peluquería", "Adiestramiento de mascota" )),
     servicio_recogida boolean,
-	numero_paseos_diario int check(numero_paseos_diario >= 1 AND numero_paseos_diario <= 3),
+	numero_paseos_diario int check(numero_paseos_diario >= 0 AND numero_paseos_diario <= 3),
     primary key(idTipoSer)
 );
 create table Tamaño(
@@ -68,8 +68,8 @@ create table TipoMascotas(
     foreign key(idtipoSer) references TipoServicio(idTipoSer)
 );
 create table TipoAseo(
-	idTipoAseo int not null unique AUTO_INCREMENT,
-    idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 100000),
+	idTipoAseo int not null auto_increment unique,
+    idTipoSer int not null check(idTipoSer > 0 AND idTipoSer < 100000),
     aseo char(50) not null check(aseo IN ("básico", "completo", "ducha", "afeitado de almohadillas de patas", "recorte y relleno de uñas")),
     primary key(idTipoAseo, idTipoSer),
     foreign key(idtipoSer) references TipoServicio(idTipoSer)
