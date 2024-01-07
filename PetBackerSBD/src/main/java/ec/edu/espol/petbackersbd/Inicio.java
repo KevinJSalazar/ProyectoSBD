@@ -4,6 +4,7 @@
  */
 package ec.edu.espol.petbackersbd;
 
+import formularios.FormTipodeServicio;
 import formularios.FormUsuario;
 
 /**
@@ -13,7 +14,7 @@ import formularios.FormUsuario;
 public class Inicio {
     
     public static void main(String[] args) {
-        FormUsuario objetoFormulario = new FormUsuario();
+        FormTipodeServicio objetoFormulario = new FormTipodeServicio();
         objetoFormulario.setVisible(true);
     }
 }
