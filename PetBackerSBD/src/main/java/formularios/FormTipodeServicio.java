@@ -64,7 +64,10 @@ public class FormTipodeServicio extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb = new javax.swing.JTable();
+<<<<<<< HEAD
         jButton1 = new javax.swing.JButton();
+=======
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,7 +120,11 @@ public class FormTipodeServicio extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         jLabel5.setText("No. Dias:");
+=======
+        jLabel5.setText("Can_Dias:");
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
 
         jLabel6.setText("Detalles:");
 
@@ -129,13 +136,21 @@ public class FormTipodeServicio extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         jLabel8.setText("No. Mascotas:");
+=======
+        jLabel8.setText("Can_Mascotas:");
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
 
         jLabel9.setText("Tipo:");
 
         jLabel10.setText("Recoger:");
 
+<<<<<<< HEAD
         jLabel11.setText("No. Paseos:");
+=======
+        jLabel11.setText("Can_Paseos:");
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
 
         jCheckBoxrecoger.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,7 +272,11 @@ public class FormTipodeServicio extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(txtpaseos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
                 .addComponent(btnsave)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnedit)
@@ -300,6 +319,7 @@ public class FormTipodeServicio extends javax.swing.JFrame {
             .addComponent(jScrollPane1)
         );
 
+<<<<<<< HEAD
         jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -307,12 +327,15 @@ public class FormTipodeServicio extends javax.swing.JFrame {
             }
         });
 
+=======
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -321,14 +344,22 @@ public class FormTipodeServicio extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1)))
+=======
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+=======
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -380,12 +411,15 @@ public class FormTipodeServicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdActionPerformed
 
+<<<<<<< HEAD
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Directorio ventanaPrincipal = new Directorio();
         ventanaPrincipal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+=======
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
     /**
      * @param args the command line arguments
      */
@@ -426,7 +460,10 @@ public class FormTipodeServicio extends javax.swing.JFrame {
     private javax.swing.JButton btnedit;
     private javax.swing.JButton btnremove;
     private javax.swing.JButton btnsave;
+<<<<<<< HEAD
     private javax.swing.JButton jButton1;
+=======
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
     private javax.swing.JCheckBox jCheckBoxrecoger;
     private com.toedter.calendar.JDateChooser jDatefin;
     private com.toedter.calendar.JDateChooser jDateinicio;

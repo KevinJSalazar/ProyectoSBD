@@ -49,7 +49,10 @@ public class FormTipoMascota extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb = new javax.swing.JTable();
+<<<<<<< HEAD
         jButton1 = new javax.swing.JButton();
+=======
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,7 +136,11 @@ public class FormTipoMascota extends javax.swing.JFrame {
                 .addComponent(btedit)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btremove)
+<<<<<<< HEAD
                 .addContainerGap(36, Short.MAX_VALUE))
+=======
+                .addContainerGap(65, Short.MAX_VALUE))
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Tipos de mascotas"));
@@ -167,6 +174,7 @@ public class FormTipoMascota extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
+<<<<<<< HEAD
         jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,12 +182,15 @@ public class FormTipoMascota extends javax.swing.JFrame {
             }
         });
 
+=======
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,14 +199,22 @@ public class FormTipoMascota extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1)))
+=======
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+=======
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -233,12 +252,15 @@ public class FormTipoMascota extends javax.swing.JFrame {
         objetomascota.showTipoMascota(tb);
     }//GEN-LAST:event_btremoveActionPerformed
 
+<<<<<<< HEAD
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Directorio ventanaPrincipal = new Directorio();
         ventanaPrincipal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+=======
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
     /**
      * @param args the command line arguments
      */
@@ -281,7 +303,10 @@ public class FormTipoMascota extends javax.swing.JFrame {
     private javax.swing.JButton btedit;
     private javax.swing.JButton btremove;
     private javax.swing.JButton btsave;
+<<<<<<< HEAD
     private javax.swing.JButton jButton1;
+=======
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

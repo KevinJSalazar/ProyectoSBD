@@ -23,6 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -36,6 +37,13 @@
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
+=======
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel2" max="32767" attributes="0"/>
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -44,8 +52,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+=======
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jPanel1" max="32767" attributes="0"/>
                   <Component id="jPanel2" max="32767" attributes="0"/>
@@ -208,7 +219,11 @@
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtpaseos" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
                   <EmptySpace max="32767" attributes="0"/>
+=======
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
                   <Component id="btnsave" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnedit" min="-2" max="-2" attributes="0"/>
@@ -283,7 +298,11 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
+<<<<<<< HEAD
             <Property name="text" type="java.lang.String" value="No. Dias:"/>
+=======
+            <Property name="text" type="java.lang.String" value="Can_Dias:"/>
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -305,7 +324,11 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
+<<<<<<< HEAD
             <Property name="text" type="java.lang.String" value="No. Mascotas:"/>
+=======
+            <Property name="text" type="java.lang.String" value="Can_Mascotas:"/>
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
@@ -320,7 +343,11 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
+<<<<<<< HEAD
             <Property name="text" type="java.lang.String" value="No. Paseos:"/>
+=======
+            <Property name="text" type="java.lang.String" value="Can_Paseos:"/>
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBoxrecoger">
@@ -407,6 +434,7 @@
         </Container>
       </SubComponents>
     </Container>
+<<<<<<< HEAD
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Volver"/>
@@ -415,5 +443,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
     </Component>
+=======
+>>>>>>> 13fdf49c08ccb9ae4e32ce00e02e02754a8d5e21
   </SubComponents>
 </Form>
