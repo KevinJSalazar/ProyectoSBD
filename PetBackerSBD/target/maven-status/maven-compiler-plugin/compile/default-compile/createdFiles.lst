@@ -4,9 +4,12 @@ formularios\FormUsuario$6.class
 formularios\FormUsuario$1.class
 formularios\FormUsuario.class
 ec\edu\espol\petbackersbd\FormDonación$6.class
+ec\edu\espol\petbackersbd\Directorio$1.class
 ec\edu\espol\petbackersbd\CDonación.class
 ec\edu\espol\petbackersbd\FormDonación$1.class
+ec\edu\espol\petbackersbd\Directorio$3.class
 ec\edu\espol\petbackersbd\FormServicio$6.class
+ec\edu\espol\petbackersbd\FormServicio$9.class
 ec\edu\espol\petbackersbd\FormServicio.class
 ec\edu\espol\petbackersbd\FormServicio$1.class
 formularios\FormUsuario$3.class
@@ -14,6 +17,7 @@ ec\edu\espol\petbackersbd\FormServicio$5.class
 formularios\FormUsuario$7.class
 clases\CConexion.class
 ec\edu\espol\petbackersbd\FormDonación$2.class
+ec\edu\espol\petbackersbd\FormDonación$7.class
 formularios\FormUsuario$2.class
 ec\edu\espol\petbackersbd\FormDonación$4.class
 formularios\FormUsuario$5.class
@@ -22,8 +26,10 @@ ec\edu\espol\petbackersbd\FormServicio$3.class
 formularios\FormUsuario$4.class
 ec\edu\espol\petbackersbd\FormDonación$5.class
 ec\edu\espol\petbackersbd\FormServicio$8.class
+ec\edu\espol\petbackersbd\Directorio$2.class
 ec\edu\espol\petbackersbd\FormServicio$2.class
 ec\edu\espol\petbackersbd\CServicio.class
 ec\edu\espol\petbackersbd\Inicio.class
+ec\edu\espol\petbackersbd\Directorio.class
 clases\CUsuarios.class
 ec\edu\espol\petbackersbd\FormDonación.class

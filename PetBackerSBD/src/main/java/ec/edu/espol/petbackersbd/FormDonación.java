@@ -57,7 +57,12 @@ public class FormDonación extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbDonaciones = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Donación"));
 
@@ -269,6 +274,12 @@ public class FormDonación extends javax.swing.JFrame {
         objetoDonación.seleccionarDonación(tbDonaciones, txtidDon, txtidRef, txtidUsu, txtFecha, txtMonto, txtCupón);
         
     }//GEN-LAST:event_tbDonacionesMouseClicked
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        Directorio d = new Directorio();
+        d.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
