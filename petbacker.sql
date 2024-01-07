@@ -39,7 +39,7 @@ create table Donacion(
     foreign key(idUsu) references Usuario(idUsu)
 );
 create table TipoServicio(
-	idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 100000),
+	idTipoSer int not null unique AUTO_INCREMENT,
     lugar_recogida char(250) not null,
     fecha_inicio date not null,
     numero_dias int not null check(numero_dias >= 1 AND numero_dias <= 365),
@@ -67,7 +67,7 @@ create table TipoMascotas(
     foreign key(idtipoSer) references TipoServicio(idTipoSer)
 );
 create table TipoAseo(
-	idTipoAseo int not null unique check(idTipoAseo > 0 AND idTipoAseo < 1000000),
+	idTipoAseo int not null unique AUTO_INCREMENT,
     idTipoSer int not null unique check(idTipoSer > 0 AND idTipoSer < 100000),
     aseo char(50) not null check(aseo IN ("básico", "completo", "ducha", "afeitado de almohadillas de patas", "recorte y relleno de uñas")),
     primary key(idTipoAseo, idTipoSer),
