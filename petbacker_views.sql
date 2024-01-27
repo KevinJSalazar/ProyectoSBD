@@ -69,20 +69,20 @@ FROM TipoServicio
 
 -- Indices
 
---
-create index on ;
+-- Indice para realizar busquedas más rápido por nombre de usuarios específicos
+create index indNombre on Usuario(nickname) ;
 
---
-create index on ;
+-- Indice para encontrar servicios específicos
+create index indTitulo on Servicio(titulo);
 
---
-create index on ;
+-- Indice para encontrar refugios por nombre
+create index indRefNom on RefugioMascotas(nombre);
 
---
-create index on ;
+-- Indice para agilizar la búsqueda de servicios por valoración
+create index indVal on Comentario(valoracion);
 
---
-create index on ;
+-- Indice para filtrar de forma rápida los refugios que reciben más donaciones
+create index indMonto on Donacion(monto);
 
 
 select * from TipoSerInfo;
