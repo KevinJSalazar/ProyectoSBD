@@ -73,16 +73,10 @@ INSERT INTO TipoMascotas (idTipoSer, mascota) VALUES
 (10, 'Gato');
 
 INSERT INTO TipoAseo (idTipoSer, aseo) VALUES
-(1, 'básico'),
-(2, 'completo'),
-(3, 'ducha'),
-(4, 'afeitado de almohadillas de patas'),
-(5, 'recorte y relleno de uñas'),
-(6, 'básico'),
-(7, 'completo'),
-(8, 'ducha'),
-(9, 'afeitado de almohadillas de patas'),
-(10, 'recorte y relleno de uñas');
+(5, 'completo'),
+(5, 'ducha'),
+(5, 'afeitado de almohadillas de patas'),
+(5, 'recorte y relleno de uñas');
 
 INSERT INTO Servicio (idCui, titulo, descripcion, precio, pais, provincia, ciudad, idTipoSer) VALUES
 (1, 'Cuidado de mascotas en casa', 'Ofrezco cuidado de mascotas en un ambiente hogareño y amoroso.', 30.00, 'Estados Unidos', 'California', 'Los Angeles', 1),
