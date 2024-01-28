@@ -272,7 +272,7 @@ public class FormDonación extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         CDonación objetoDonación = new CDonación();
-        objetoDonación.modificarDonación(txtidDon,txtFecha, txtMonto, txtCupón);
+        objetoDonación.modificarDonación(txtidDon, txtidRef, txtidUsu, txtFecha, txtMonto);
         objetoDonación.mostrarDonacion(tbDonaciones);
         
     }//GEN-LAST:event_btnModificarActionPerformed
@@ -280,7 +280,7 @@ public class FormDonación extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         
         CDonación objetoDonación = new CDonación();
-        objetoDonación.InsertarDonacion(txtFecha, txtMonto, txtCupón);
+        objetoDonación.InsertarDonacion(txtidRef, txtidUsu, txtFecha, txtMonto);
         objetoDonación.mostrarDonacion(tbDonaciones);
     }//GEN-LAST:event_btnGuardarActionPerformed
 

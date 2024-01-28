@@ -58,7 +58,7 @@ public class CTipoAseo {
         
         CConexion objetoconexion = new CConexion();
         
-        String consulta="insert into TipoAseo (idTipoSer, aseo) values(?, ?);";
+        String consulta="call InsertarTipoAseo(?,?);";
         
         try{
             CallableStatement es = objetoconexion.estableceConexion().prepareCall(consulta);
@@ -145,14 +145,14 @@ public class CTipoAseo {
         
         CConexion Objetoconexion = new CConexion();
         
-        String consulta="UPDATE TipoAseo SET tipoaseo.idTipoSer = ?, tipoaseo.aseo = ? WHERE tipoaseo.idTipoAseo = ?;";
+        String consulta="call ActualizarTipoAseo(?,?,?);";
         
         try{
             CallableStatement es = Objetoconexion.estableceConexion().prepareCall(consulta);
             
-            es.setInt(1, getIdTipo_ser());
-            es.setString(2, getTipo());
-            es.setInt(3, getId());
+            es.setInt(1, getId());
+            es.setInt(2, getIdTipo_ser());
+            es.setString(3, getTipo());
             
             es.execute();
             
@@ -170,7 +170,7 @@ public class CTipoAseo {
         
                 CConexion Objetoconexion = new CConexion();
         
-        String consulta="DELETE FROM TipoAseo Where tipoaseo.idTipoAseo = ?";
+        String consulta="call EliminarTipoAseo(?);";
         
         try{
             CallableStatement es = Objetoconexion.estableceConexion().prepareCall(consulta);

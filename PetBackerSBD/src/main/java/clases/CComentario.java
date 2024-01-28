@@ -82,25 +82,24 @@ public class CComentario {
     public void insertarComentario(JComboBox idSer, JComboBox idUsu, JComboBox idCui, JDateChooser paramFecha, JTextField paramValoracion, JTextField paramContenido){
         if(!camposLlenos(paramFecha,paramValoracion,paramContenido)) return;
         CConexion objetoConexion = new CConexion();
-        String consulta = "insert into Comentario (idSol,idSer,idUsu,idCui,fecha,valoracion,contenido) values(?, ?, ?, ?, ?, ?, ?);";
+        String consulta = "call InsertarComentario(?,?,?,?,?,?);";
         try {
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-            cs.setInt(1, 0);
             int servicio = (int) idSer.getClientProperty(idSer.getSelectedItem());
-            cs.setInt(2, servicio);
+            cs.setInt(1, servicio);
             int usuario = (int) idUsu.getClientProperty(idUsu.getSelectedItem());
             int cuidador = (int) idCui.getClientProperty(idCui.getSelectedItem());
             if(cuidador == usuario) {
                 JOptionPane.showMessageDialog(null, "El Usuario y Cuidador deben ser diferentes");
                 return;
             }
-            cs.setInt(3, usuario);
-            cs.setInt(4, cuidador);
+            cs.setInt(2, usuario);
+            cs.setInt(3, cuidador);
             Date fechaSelec = paramFecha.getDate();
             java.sql.Date fechaSql = new java.sql.Date(fechaSelec.getTime());
-            cs.setDate(5, fechaSql);
-            cs.setDouble(6, Double.parseDouble(paramValoracion.getText()));
-            cs.setString(7, paramContenido.getText());
+            cs.setDate(4, fechaSql);
+            cs.setDouble(5, Double.parseDouble(paramValoracion.getText()));
+            cs.setString(6, paramContenido.getText());
             cs.execute();
             JOptionPane.showMessageDialog(null, "El comentario se guardó correctamente.");
         } catch (NumberFormatException n) {
@@ -184,25 +183,25 @@ public class CComentario {
             JOptionPane.showMessageDialog(null, "Seleccione un Comentario para modificar");
         else if(!camposLlenos(paramFecha,paramValoracion,paramContenido)) return;    
         CConexion objetoConexion = new CConexion();
-        String consulta = "update comentario c set c.idSer=?,c.idUsu=?,c.idCui=?,c.fecha=?,c.valoracion=?,c.contenido=? where c.idSol=?;";
+        String consulta = "call ActualizarComentario(?,?,?,?,?,?,?);";
         try {
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
             int servicio = (int) idSer.getClientProperty(idSer.getSelectedItem());
-            cs.setInt(1, servicio);
+            cs.setInt(1,Integer.parseInt(id.getText()));
+            cs.setInt(2, servicio);
             int usuario = (int) idUsu.getClientProperty(idUsu.getSelectedItem());
             int cuidador = (int) idCui.getClientProperty(idCui.getSelectedItem());
             if(cuidador == usuario) {
                 JOptionPane.showMessageDialog(null, "El Usuario y Cuidador deben ser diferentes");
                 return;
             }
-            cs.setInt(2, usuario);
-            cs.setInt(3, cuidador);
+            cs.setInt(3, usuario);
+            cs.setInt(4, cuidador);
             Date fechaSelec = paramFecha.getDate();
             java.sql.Date fechaSql = new java.sql.Date(fechaSelec.getTime());
-            cs.setDate(4, fechaSql);
-            cs.setDouble(5, Double.parseDouble(paramValoracion.getText()));
-            cs.setString(6, paramContenido.getText());
-            cs.setInt(7,Integer.parseInt(id.getText()));
+            cs.setDate(5, fechaSql);
+            cs.setDouble(6, Double.parseDouble(paramValoracion.getText()));
+            cs.setString(7, paramContenido.getText());
             cs.execute();
             JOptionPane.showMessageDialog(null, "El comentario se modificó correctamente.");
         } catch (NumberFormatException n) {
@@ -216,7 +215,7 @@ public class CComentario {
     
     public void eliminarComentario(JTextField paramId){
         CConexion objetoConexion = new CConexion();
-        String consulta = "delete from comentario where comentario.idSol = ?;";
+        String consulta = "call EliminarComentario(?);";
         try {
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
             cs.setInt(1, Integer.parseInt(paramId.getText()));

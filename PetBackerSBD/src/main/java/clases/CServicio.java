@@ -106,30 +106,33 @@ public class CServicio {
         this.ciudad = ciudad;
     }
     
-    public void InsertarServicio(JTextField paramTitulo,JTextField paramDescripcion, JTextField paramPrecio, JTextField paramPais, JTextField paramProvincia, JTextField paramCiudad)
+    public void InsertarServicio(JTextField paramidCui, JTextField paramTitulo,JTextField paramDescripcion, JTextField paramPrecio, JTextField paramPais, JTextField paramProvincia, JTextField paramCiudad, JTextField paramidTipser)
     {
         
+        setIdCui(Integer.parseInt(paramidCui.getText()));
         setTitulo(paramTitulo.getText());
         setDescripción(paramDescripcion.getText());
         setPrecio(Double.parseDouble(paramPrecio.getText()));
         setPais(paramPais.getText());
         setProvincia(paramProvincia.getText());
         setCiudad(paramCiudad.getText());
-         
+        setIdTipoSer(Integer.parseInt(paramidTipser.getText())); 
         
         CConexion objetoConexion = new CConexion();
         
-        String consulta = "insert into Servicio (titulo, descripcion, precio, pais, provincia, ciudad) values (?,?,?,?,?,?);";
+        String consulta = "call InsertarServicio(?,?,?,?,?,?,?,?);";
         
         try {
             
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-            cs.setString(1, getTitulo());
-            cs.setString(2, getDescripción());
-            cs.setDouble(3, getPrecio());
-            cs.setString(4, getPais());
-            cs.setString(5, getProvincia());
-            cs.setString(6, getCiudad());
+            cs.setInt(1, getIdCui());
+            cs.setString(2, getTitulo());
+            cs.setString(3, getDescripción());
+            cs.setDouble(4, getPrecio());
+            cs.setString(5, getPais());
+            cs.setString(6, getProvincia());
+            cs.setString(7, getCiudad());
+            cs.setInt(8, getIdTipoSer());
             
             cs.execute();
             
@@ -228,31 +231,36 @@ public class CServicio {
         }
     }
     
-    public void modificarServicio(JTextField paramIdSer, JTextField paramTitulo,JTextField paramDescripcion, JTextField paramPrecio, JTextField paramPais, JTextField paramProvincia, JTextField paramCiudad)
+    public void modificarServicio(JTextField paramIdSer, JTextField paramIdCui, JTextField paramTitulo,JTextField paramDescripcion, JTextField paramPrecio, JTextField paramPais, JTextField paramProvincia, JTextField paramCiudad, JTextField paramIdTipser)
     {
 
+        setIdSer(Integer.parseInt(paramIdSer.getText()));
+        setIdCui(Integer.parseInt(paramIdCui.getText()));
         setTitulo(paramTitulo.getText());
         setDescripción(paramDescripcion.getText());
         setPrecio(Double.parseDouble(paramPrecio.getText()));
         setPais(paramPais.getText());
         setProvincia(paramProvincia.getText());
         setCiudad(paramCiudad.getText());
+        setIdTipoSer(Integer.parseInt(paramIdTipser.getText())); 
  
         CConexion objetoConexion = new CConexion();
         
-        String consulta = "Update Servicio set servicio.titulo = ?, servicio.descripcion = ?, servicio.precio = ?, servicio.pais = ?, servicio.provincia = ?, servicio.ciudad = ? where servicio.idSer = ?;";
+        String consulta = "call ActualizarServicio(?,?,?,?,?,?,?,?,?);";
         
         try {
             
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
             
-            cs.setString(1,getTitulo());
-            cs.setString(2, getDescripción());
-            cs.setDouble(3, getPrecio());
-            cs.setString(4, getPais());
-            cs.setString(5, getProvincia());
-            cs.setString(6, getCiudad());
-            cs.setInt(7, Integer.parseInt(paramIdSer.getText()));
+            cs.setInt(1, getIdSer());
+            cs.setInt(2, getIdCui());
+            cs.setString(3,getTitulo());
+            cs.setString(4, getDescripción());
+            cs.setDouble(5, getPrecio());
+            cs.setString(6, getPais());
+            cs.setString(7, getProvincia());
+            cs.setString(8, getCiudad());
+            cs.setInt(9, getIdTipoSer());
 
             cs.execute();
             
@@ -271,7 +279,7 @@ public class CServicio {
         
         CConexion objetoConexion = new CConexion();
         
-        String consulta = "Delete From Servicio Where Servicio.idSer = ?;";
+        String consulta = "call EliminarServicio(?);";
         
         try {
             

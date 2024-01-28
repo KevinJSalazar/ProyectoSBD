@@ -29,7 +29,7 @@ public class CUsuarios {
     
     public void saveUser(JTextField paramCorreo, JTextField paramNombre, JTextField paramContraseña, JTextField paramTelefono, File foto, JTextField paramRedSocial, JTextField paramVales, JTextField paramTarjeta, JComboBox comboTipo){
         CConexion objetoConexion = new CConexion();
-        String consulta = "insert into Usuario (email, nickname, contraseña, telefono, foto, red_social, vales, tarjeta, tipo) values(?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String consulta = "call InsertarUsuario(?,?,?,?,?,?,?,?,?);";
         
         try {
             FileInputStream fis = new FileInputStream(foto);
@@ -134,21 +134,22 @@ public class CUsuarios {
     
     public void modifyUser(JTextField paramId, JTextField paramCorreo, JTextField paramNombre, JTextField paramContraseña, JTextField paramTelefono, File foto, JTextField paramRedSocial, JTextField paramVales, JTextField paramTarjeta, JComboBox comboTipo){
         CConexion objetoConexion = new CConexion();
-        String consulta = "update usuario u set u.email = ?, u.nickname = ?, u.contraseña = ?, u.telefono = ?, u.foto = ?, u.red_social = ?, u.vales = ?, u.tarjeta = ?, u.tipo = ? where u.idusu = ?;";
+        String consulta = "call ActualizarUsuario(?,?,?,?,?,?,?,?,?,?);";
         
         try {
             FileInputStream fis = new FileInputStream(foto);
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-            cs.setString(1, paramCorreo.getText());
-            cs.setString(2, paramNombre.getText());
-            cs.setString(3, paramContraseña.getText());
-            cs.setString(4, paramTelefono.getText());
-            cs.setBinaryStream(5, fis,(int)foto.length());
-            cs.setString(6, paramRedSocial.getText());
-            cs.setInt(7, Integer.parseInt(paramVales.getText()));
-            cs.setString(8, paramTarjeta.getText());
-            cs.setString(9, comboTipo.getSelectedItem().toString());
-            cs.setInt(10, Integer.parseInt(paramId.getText()));
+            cs.setInt(1, Integer.parseInt(paramId.getText()));
+            cs.setString(2, paramCorreo.getText());
+            cs.setString(3, paramNombre.getText());
+            cs.setString(4, paramContraseña.getText());
+            cs.setString(5, paramTelefono.getText());
+            cs.setBinaryStream(6, fis,(int)foto.length());
+            cs.setString(7, paramRedSocial.getText());
+            cs.setInt(8, Integer.parseInt(paramVales.getText()));
+            cs.setString(9, paramTarjeta.getText());
+            cs.setString(10, comboTipo.getSelectedItem().toString());
+            
             cs.execute();
             JOptionPane.showMessageDialog(null, "El usuario se modificó correctamente.");
         } catch (Exception e) {
@@ -158,7 +159,7 @@ public class CUsuarios {
     
     public void deleteUser(JTextField paramId){
         CConexion objetoConexion = new CConexion();
-        String consulta = "delete from usuario u where u.idusu = ?;";
+        String consulta = "call EliminarUsuario(?);";
         
         try {
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);

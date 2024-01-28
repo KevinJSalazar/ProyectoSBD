@@ -139,7 +139,7 @@ public class CTipodeServicio {
         
         CConexion Objetoconexion = new CConexion();
         
-        String consulta="insert into TipoServicio (lugar_recogida, fecha_inicio, numero_dias, fecha_fin, detalles, raza, numero_mascotas, tipo, servicio_recogida, numero_paseos_diario) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String consulta="call InsertarTipoServicio(?,?,?,?,?,?,?,?,?,?);";
     
         try{
             CallableStatement es = Objetoconexion.estableceConexion().prepareCall(consulta);
@@ -304,22 +304,22 @@ public class CTipodeServicio {
         
         CConexion Objetoconexion = new CConexion();
         
-        String consulta="UPDATE TipoServicio SET tiposervicio.lugar_recogida = ?, tiposervicio.fecha_inicio = ?, tiposervicio.numero_dias = ?, tiposervicio.fecha_fin = ?, tiposervicio.detalles = ?, tiposervicio.raza = ?, tiposervicio.numero_mascotas = ?, tiposervicio.tipo = ?, tiposervicio.servicio_recogida = ?, tiposervicio.numero_paseos_diario = ? WHERE tiposervicio.idTipoSer = ?;";
+        String consulta="call ActualizarTipoServicio(?,?,?,?,?,?,?,?,?,?,?);";
         
         try{
             CallableStatement es = Objetoconexion.estableceConexion().prepareCall(consulta);
             
-            es.setString(1, getLugar_recogida());
-            es.setDate(2, getFechaInicio());
-            es.setInt(3, getCan_Dias());
-            es.setDate(4, getFechaFin());
-            es.setString(5, getDetalles());
-            es.setString(6, getRaza());
-            es.setInt(7, getCan_Mascotas());
-            es.setString(8,getEsTipo());
-            es.setBoolean(9, getRecoger());
-            es.setInt(10, getCan_Paseos());
-            es.setInt(11, getId());
+            es.setInt(1, getId());
+            es.setString(2, getLugar_recogida());
+            es.setDate(3, getFechaInicio());
+            es.setInt(4, getCan_Dias());
+            es.setDate(5, getFechaFin());
+            es.setString(6, getDetalles());
+            es.setString(7, getRaza());
+            es.setInt(8, getCan_Mascotas());
+            es.setString(9,getEsTipo());
+            es.setBoolean(10, getRecoger());
+            es.setInt(11, getCan_Paseos());
             
             es.execute();
             
@@ -337,7 +337,7 @@ public class CTipodeServicio {
         
                 CConexion Objetoconexion = new CConexion();
         
-        String consulta="DELETE FROM TipoServicio Where tiposervicio.idTipoSer = ?";
+        String consulta="call EliminarTipoServicio(?);";
         
         try{
             CallableStatement es = Objetoconexion.estableceConexion().prepareCall(consulta);

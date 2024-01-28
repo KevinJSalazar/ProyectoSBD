@@ -84,7 +84,7 @@ public class CDonación {
         this.cupon = cupon;
     }
     
-    public void InsertarDonacion( JTextField paramFecha,JTextField paramMonto, JTextField paramCupon)
+    public void InsertarDonacion( JTextField paramidRef, JTextField paramidUser, JTextField paramFecha, JTextField paramMonto)
     {
         
         
@@ -96,19 +96,21 @@ public class CDonación {
             ex.printStackTrace();
         }
         
+        setIdRef(Integer.parseInt(paramidRef.getText()));
+        setIdUsu(Integer.parseInt(paramidUser.getText()));
         setMonto(Double.parseDouble(paramMonto.getText()));
-        setCupon(Double.parseDouble(paramCupon.getText()));
         
         CConexion objetoConexion = new CConexion();
         
-        String consulta = "insert into Donacion(Fecha, Monto, Cupon) values (?,?,?);";
+        String consulta = "call InsertarDonacion(?,?,?,?);";
         
         try {
             
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-            cs.setDate(1, (java.sql.Date) getFecha());
-            cs.setDouble(2, getMonto());
-            cs.setDouble(3, getCupon());
+            cs.setInt(1, getIdRef());
+            cs.setInt(2, getIdUsu());
+            cs.setDate(3, (java.sql.Date) getFecha());
+            cs.setDouble(4, getMonto());
             
             cs.execute();
             
@@ -198,7 +200,7 @@ public class CDonación {
         }
     }
     
-    public void modificarDonación(JTextField paramId, JTextField paramFecha,JTextField paramMonto, JTextField paramCupon)
+    public void modificarDonación(JTextField paramId, JTextField paramIdRef, JTextField paramIdUser, JTextField paramFecha, JTextField paramMonto)
     {
         try {
             
@@ -208,20 +210,22 @@ public class CDonación {
             ex.printStackTrace();
         }
         
+        setIdRef(Integer.parseInt(paramIdRef.getText()));
+        setIdUsu(Integer.parseInt(paramIdUser.getText()));
         setMonto(Double.parseDouble(paramMonto.getText()));
-        setCupon(Double.parseDouble(paramCupon.getText()));
         
         CConexion objetoConexion = new CConexion();
         
-        String consulta = "Update Donacion set donacion.fecha = ?, donacion.monto = ?, donacion.cupon = ? where donacion.idDon = ?;";
+        String consulta = "call ActualizarDonacion(?,?,?,?,?);";
         
         try {
             
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-            cs.setDate(1, (java.sql.Date) getFecha());
-            cs.setDouble(2, getMonto());
-            cs.setDouble(3, getCupon());
-            cs.setInt(4, Integer.parseInt(paramId.getText()));
+            cs.setInt(1, Integer.parseInt(paramId.getText()));
+            cs.setInt(2, getIdRef());
+            cs.setInt(3, getIdUsu());
+            cs.setDate(4, (java.sql.Date) getFecha());
+            cs.setDouble(5, getMonto());
             
             cs.execute();
             
@@ -240,7 +244,7 @@ public class CDonación {
         
         CConexion objetoConexion = new CConexion();
         
-        String consulta = "Delete From Donacion Where donacion.idDon = ?;";
+        String consulta = "call EliminarDonacion(?);";
         
         try {
             

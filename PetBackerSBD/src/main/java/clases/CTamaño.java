@@ -77,13 +77,12 @@ public class CTamaño {
     
     public void agregarTamaño(JComboBox cbxSer,  JComboBox tamaño){
         CConexion objetoConexion = new CConexion();
-        String consulta = "insert into Tamaño (idTam,idTipoSer,tamaño) values(?, ?, ?);";
+        String consulta = "call InsertarTamaño(?,?);";
         try {
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-            cs.setInt(1, 0);
             String servicio = (String)cbxSer.getSelectedItem();
-            cs.setInt(2, Integer.parseInt(servicio));
-            cs.setString(3, (String)tamaño.getSelectedItem());
+            cs.setInt(1, Integer.parseInt(servicio));
+            cs.setString(2, (String)tamaño.getSelectedItem());
             cs.execute();
             JOptionPane.showMessageDialog(null, "El tamaño se guardó correctamente.");
         } catch (Exception e) {
@@ -95,13 +94,14 @@ public class CTamaño {
         if(id.getText().equals(""))
             JOptionPane.showMessageDialog(null, "Seleccione una Tamaño para modificar"); 
         CConexion objetoConexion = new CConexion();
-        String consulta = "update tamaño t set t.idTipoSer=?,t.tamaño=? where t.idTam=?;";
+        String consulta = "call ActualizarTamaño(?,?,?);";
         try {
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
             String servicio = (String)cbxSer.getSelectedItem();
-            cs.setInt(1, Integer.parseInt(servicio));
-            cs.setString(2, (String)tamaño.getSelectedItem());
-            cs.setInt(3,Integer.parseInt(id.getText()));
+            cs.setInt(1,Integer.parseInt(id.getText()));
+            cs.setInt(2, Integer.parseInt(servicio));
+            cs.setString(3, (String)tamaño.getSelectedItem());
+            
             cs.execute();
             JOptionPane.showMessageDialog(null, "El tamaño se modificó correctamente.");
         } catch (SQLException e) {
@@ -124,7 +124,7 @@ public class CTamaño {
     
     public void eliminarTamaño(JTextField paramId){
         CConexion objetoConexion = new CConexion();
-        String consulta = "delete from tamaño where tamaño.idTam = ?;";
+        String consulta = "call EliminarTamaño(?);";
         try {
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
             cs.setInt(1, Integer.parseInt(paramId.getText()));

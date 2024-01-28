@@ -120,23 +120,22 @@ public class CSolicitud {
     
     public void agregarSolicitud(JComboBox cbxSer, JComboBox cbxUsu, JComboBox cbxCui, JDateChooser fecha){
         CConexion objetoConexion = new CConexion();
-        String consulta = "insert into Solicitud (idSol,idSer,idUsu,idCui,fecha) values(?, ?, ?, ?, ?);";
+        String consulta = "call InsertarSolicitud(?,?,?,?);";
         try {
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-            cs.setInt(1, 0);
             int servicio = (int)cbxSer.getClientProperty(cbxSer.getSelectedItem());
-            cs.setInt(2, servicio);
+            cs.setInt(1, servicio);
             int usuario = (int)cbxUsu.getClientProperty(cbxUsu.getSelectedItem());
             int cuidador = (int)cbxCui.getClientProperty(cbxCui.getSelectedItem());
             if(cuidador == usuario) {
                 JOptionPane.showMessageDialog(null, "El Usuario y Cuidador deben ser diferentes");
                 return;
             }
-            cs.setInt(3, usuario);
-            cs.setInt(4, cuidador);
+            cs.setInt(2, usuario);
+            cs.setInt(3, cuidador);
             Date fechaSelec = fecha.getDate();
             java.sql.Date fechaSql = new java.sql.Date(fechaSelec.getTime());
-            cs.setDate(5, fechaSql);
+            cs.setDate(4, fechaSql);
             cs.execute();
             JOptionPane.showMessageDialog(null, "La solicitud se guardó correctamente.");
         } catch (Exception e) {
@@ -174,23 +173,23 @@ public class CSolicitud {
         if(id.getText().equals(""))
             JOptionPane.showMessageDialog(null, "Seleccione una Solicitud para modificar"); 
         CConexion objetoConexion = new CConexion();
-        String consulta = "update solicitud s set s.idSer=?,s.idUsu=?,s.idCui=?,s.fecha=? where s.idSol=?;";
+        String consulta = "call ActualizarSolicitud(?,?,?,?,?);";
         try {
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
             int servicio = (int) cbxSer.getClientProperty(cbxSer.getSelectedItem());
-            cs.setInt(1, servicio);
+            cs.setInt(1,Integer.parseInt(id.getText()));
+            cs.setInt(2, servicio);
             int usuario = (int) cbxUsu.getClientProperty(cbxUsu.getSelectedItem());
             int cuidador = (int) cbxCui.getClientProperty(cbxCui.getSelectedItem());
             if(cuidador == usuario) {
                 JOptionPane.showMessageDialog(null, "El Usuario y Cuidador deben ser diferentes");
                 return;
             }
-            cs.setInt(2, usuario);
-            cs.setInt(3, cuidador);
+            cs.setInt(3, usuario);
+            cs.setInt(4, cuidador);
             Date fechaSelec = fecha.getDate();
             java.sql.Date fechaSql = new java.sql.Date(fechaSelec.getTime());
-            cs.setDate(4, fechaSql);
-            cs.setInt(5,Integer.parseInt(id.getText()));
+            cs.setDate(5, fechaSql);
             cs.execute();
             JOptionPane.showMessageDialog(null, "La solicitud se modificó correctamente.");
         } catch (SQLException e) {
@@ -203,7 +202,7 @@ public class CSolicitud {
     
     public void eliminarSolicitud(JTextField paramId){
         CConexion objetoConexion = new CConexion();
-        String consulta = "delete from solicitud where solicitud.idSol = ?;";
+        String consulta = "call EliminarSolicitud(?);";
         try {
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
             cs.setInt(1, Integer.parseInt(paramId.getText()));

@@ -308,7 +308,7 @@ public class FormServicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         CServicio objetoServicio = new CServicio();
-        objetoServicio.modificarServicio(txtidSer, txtTitulo, txtDescripcion, txtPrecio, txtPais, txtProvincia, txtCiudad);
+        objetoServicio.modificarServicio(txtidSer, txtidCui, txtTitulo, txtDescripcion, txtPrecio, txtPais, txtProvincia, txtCiudad, txtidTipoSer);
         objetoServicio.mostrarServicio(tbServicios);
         
     }//GEN-LAST:event_btnModificarActionPerformed
@@ -333,7 +333,7 @@ public class FormServicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         CServicio objetoServicio = new CServicio();
-        objetoServicio.InsertarServicio(txtTitulo, txtDescripcion, txtPrecio, txtPais, txtProvincia, txtCiudad);
+        objetoServicio.InsertarServicio(txtidCui, txtTitulo, txtDescripcion, txtPrecio, txtPais, txtProvincia, txtCiudad, txtidTipoSer);
         objetoServicio.mostrarServicio(tbServicios);
         
     }//GEN-LAST:event_btnGuardarActionPerformed

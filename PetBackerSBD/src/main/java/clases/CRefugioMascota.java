@@ -29,7 +29,7 @@ public class CRefugioMascota {
     
     public void saveShelter(JTextField correo, JTextField nombre, JTextArea descripcion, File foto, JTextField paginaWeb, JTextField direccion, JTextField estado, JTextField ciudad, JTextField telefono, JTextField telefonoOp){
         CConexion objetoConexion = new CConexion();
-        String consulta = "insert into Refugiomascotas (email, nombre, descripcion, foto, pagina_web, direccion, estado, ciudad, telefono, telefonoOp) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String consulta = "call InsertarRefugioMascotas(?,?,?,?,?,?,?,?,?,?);";
         
         try {
             FileInputStream fis = new FileInputStream(foto);
@@ -137,22 +137,23 @@ public class CRefugioMascota {
     
     public void modifyShelters(JTextField id, JTextField correo, JTextField nombre, JTextArea descripcion, File foto, JTextField paginaWeb, JTextField direccion, JTextField estado, JTextField ciudad, JTextField telefono, JTextField telefonoOp){
         CConexion objetoConexion = new CConexion();
-        String consulta = "update refugiomascotas rm set rm.email = ?, rm.nombre = ?, rm.descripcion = ?, rm.foto = ?, rm.pagina_web = ?, rm.direccion = ?, rm.estado = ?, rm.ciudad = ?, rm.telefono = ?, rm.telefonoOp = ? where rm.idref = ?;";
+        String consulta = "call ActualizarRefugioMascotas(?,?,?,?,?,?,?,?,?,?,?);";
         
         try {
             FileInputStream fis = new FileInputStream(foto);
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-            cs.setString(1, correo.getText());
-            cs.setString(2, nombre.getText());
-            cs.setString(3, descripcion.getText());
-            cs.setBinaryStream(4, fis,(int)foto.length());
-            cs.setString(5, paginaWeb.getText());
-            cs.setString(6, direccion.getText());
-            cs.setString(7, estado.getText());
-            cs.setString(8, ciudad.getText());
-            cs.setString(9, telefono.getText());
-            cs.setString(10, telefonoOp.getText());
-            cs.setInt(11, Integer.parseInt(id.getText()));
+            cs.setInt(1, Integer.parseInt(id.getText()));
+            cs.setString(2, correo.getText());
+            cs.setString(3, nombre.getText());
+            cs.setString(4, descripcion.getText());
+            cs.setBinaryStream(5, fis,(int)foto.length());
+            cs.setString(6, paginaWeb.getText());
+            cs.setString(7, direccion.getText());
+            cs.setString(8, estado.getText());
+            cs.setString(9, ciudad.getText());
+            cs.setString(10, telefono.getText());
+            cs.setString(11, telefonoOp.getText());
+            
             cs.execute();
             JOptionPane.showMessageDialog(null, "El refugio se modificó correctamente.");
         } catch (Exception e) {
@@ -162,7 +163,7 @@ public class CRefugioMascota {
     
     public void deleteShelter(JTextField paramId){
         CConexion objetoConexion = new CConexion();
-        String consulta = "delete from refugiomascotas rm where rm.idRef = ?;";
+        String consulta = "call EliminarRefugioMascotas(?);";
         
         try {
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
