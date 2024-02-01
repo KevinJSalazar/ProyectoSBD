@@ -17,9 +17,7 @@ public class FormServicio extends javax.swing.JFrame {
     public FormServicio() {
         initComponents();
         
-        txtidSer.setEnabled(false);
-        txtidCui.setEnabled(false);
-        txtidTipoSer.setEnabled(false);
+
         
         this.setLocationRelativeTo(null);
         

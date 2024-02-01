@@ -19,9 +19,7 @@ public class FormDonación extends javax.swing.JFrame {
         
         this.setLocationRelativeTo(null);
         
-        txtidDon.setEnabled(false);
-        txtidRef.setEnabled(false);
-        txtidUsu.setEnabled(false);
+
         
         //CConexion objetoConexion = new CConexion();
         //objetoConexion.estableceConexion();
