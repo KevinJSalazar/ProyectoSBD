@@ -139,16 +139,16 @@ public class CUsuarios {
         try {
             FileInputStream fis = new FileInputStream(foto);
             CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
-            cs.setInt(1, Integer.parseInt(paramId.getText()));
-            cs.setString(2, paramCorreo.getText());
-            cs.setString(3, paramNombre.getText());
-            cs.setString(4, paramContraseña.getText());
-            cs.setString(5, paramTelefono.getText());
-            cs.setBinaryStream(6, fis,(int)foto.length());
-            cs.setString(7, paramRedSocial.getText());
-            cs.setInt(8, Integer.parseInt(paramVales.getText()));
-            cs.setString(9, paramTarjeta.getText());
-            cs.setString(10, comboTipo.getSelectedItem().toString());
+            cs.setString(1, paramCorreo.getText());
+            cs.setString(2, paramNombre.getText());
+            cs.setString(3, paramContraseña.getText());
+            cs.setString(4, paramTelefono.getText());
+            cs.setBinaryStream(5, fis,(int)foto.length());
+            cs.setString(6, paramRedSocial.getText());
+            cs.setInt(7, Integer.parseInt(paramVales.getText()));
+            cs.setString(8, paramTarjeta.getText());
+            cs.setString(9, comboTipo.getSelectedItem().toString());
+            cs.setInt(10, Integer.parseInt(paramId.getText()));
             
             cs.execute();
             JOptionPane.showMessageDialog(null, "El usuario se modificó correctamente.");
