@@ -18,11 +18,7 @@ public class FormDonación extends javax.swing.JFrame {
         initComponents();
         
         this.setLocationRelativeTo(null);
-        
-
-        
-        //CConexion objetoConexion = new CConexion();
-        //objetoConexion.estableceConexion();
+        txtidDon.setEnabled(false);
         
         CDonación objetoDonacion = new CDonación();
         objetoDonacion.mostrarDonacion(tbDonaciones);

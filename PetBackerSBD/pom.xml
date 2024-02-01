@@ -40,7 +40,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        ec.edu.espol.petbackersbd.Inicio
+                                        ec.edu.espol.petbackersbd.PetBackerSBD
                                     </mainClass>
                                 </manifest>
                             </archive>

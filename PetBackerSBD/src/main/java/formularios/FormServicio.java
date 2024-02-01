@@ -17,13 +17,11 @@ public class FormServicio extends javax.swing.JFrame {
     public FormServicio() {
         initComponents();
         
-
-        
         this.setLocationRelativeTo(null);
+        txtidSer.setEnabled(false);
         
         CServicio objetoServicio = new CServicio();
         objetoServicio.mostrarServicio(tbServicios);
-        
         
     }
 
@@ -77,6 +75,12 @@ public class FormServicio extends javax.swing.JFrame {
         jLabel2.setText("idCuidador");
 
         jLabel3.setText("Titulo");
+
+        txtidSer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidSerActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Descripción");
 
@@ -345,6 +349,10 @@ public class FormServicio extends javax.swing.JFrame {
         ventanaPrincipal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtidSerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidSerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidSerActionPerformed
 
     /**
      * @param args the command line arguments

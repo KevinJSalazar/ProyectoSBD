@@ -41,7 +41,6 @@ public class CTamaño {
         modelo.addColumn("Id");
         modelo.addColumn("IdTipoServicio");
         modelo.addColumn("Tamaño");
-        modelo.addColumn("Titulo");
         modelo.addColumn("Tipo");
         modelo.addColumn("Fecha inicio");
         modelo.addColumn("Fecha fin");
@@ -50,7 +49,7 @@ public class CTamaño {
         modelo.addColumn("Detalles");
         tbSolicitudes.setModel(modelo);
         
-        String sql = "select t.idTam,tp.idTipoSer,t.tamaño,s.titulo,tp.tipo,tp.fecha_inicio,tp.fecha_fin,tp.raza,tp.lugar_recogida,tp.detalles from tamaño t natural join tipoServicio tp natural join servicio s;";
+        String sql = "select t.idTam,tipoServicio.idTipoSer,t.tamaño,tipoServicio.tipo,tipoServicio.fecha_inicio,tipoServicio.fecha_fin,tipoServicio.raza,tipoServicio.lugar_recogida,tipoServicio.detalles from tamaño t join tipoServicio using (idTipoSer);";
         
         try {
             Statement st = objetoConexion.estableceConexion().createStatement();
@@ -59,7 +58,6 @@ public class CTamaño {
                 String idTam = rs.getString("idTam");
                 String idTpSer = rs.getString("idTipoSer");
                 String tamaño = rs.getString("tamaño");
-                String titulo = rs.getString("titulo");
                 String tipo = rs.getString("tipo");
                 String fecha_inicio = rs.getString("fecha_inicio");
                 String fecha_fin = rs.getString("fecha_fin");
@@ -67,7 +65,7 @@ public class CTamaño {
                 String lugar_recogida = rs.getString("lugar_recogida");
                 String detalles = rs.getString("detalles");
 
-                modelo.addRow(new Object[]{idTam,idTpSer,tamaño,titulo,tipo,fecha_inicio,fecha_fin,raza,lugar_recogida,detalles});
+                modelo.addRow(new Object[]{idTam,idTpSer,tamaño,tipo,fecha_inicio,fecha_fin,raza,lugar_recogida,detalles});
             }
             tbSolicitudes.setModel(modelo);
         } catch (Exception e) {
