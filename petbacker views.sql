@@ -1,7 +1,7 @@
 use petbacker;
 
 
--- 1) Acceso rápido a datos de refugios 
+-- 1) Acceso rápido a datos de refugiosss 
 drop view if exists DatosRefugio;
 create view DatosRefugio as 
 SELECT nombre, descripcion, foto, pagina_web
